@@ -4,6 +4,10 @@ This repository describes the workflow for thalassaemia structural variants dete
 
 Here, we want to emphasize that the input alignment BAM file should **not** go through rescue process in point mutation/Indel detection paradigm.
 
+**Users are suggested to extract BAM records within the following regions to accelerate the calling process**
+
+    samtools view -h -L Thalassaemia_hg19_genome.bed -b -o output.bam input.bam
+
 For structural variation(SV) detection, the selected software, [BreakDancer](https://github.com/genome/breakdancer), [Pindel](https://github.com/genome/pindel) and [Conifer](http://conifer.sourceforge.net/) were jointly used with tailored parameters. More details about the parameter setting and processes can be found in the original publication.
 
 Also, a two-stage strategy was used to get a confident SV prediction:

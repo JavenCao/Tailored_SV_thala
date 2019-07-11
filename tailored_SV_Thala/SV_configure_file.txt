@@ -1,0 +1,28 @@
+### Configuration file for SV_scripts.py ###
+
+########################### Users must manually set-up the below information for using SV_scripts.py ####################################
+
+##working folder##
+SV_folder=/home/data/thala_project/SV
+
+##original bam folder##
+Raw_Bam_file_folder=/home/data/thala_project/Bam_file
+
+##software folder##
+samtools_path=/home/software/samtools-1.4/samtools
+CONIFER_path=/home/software/Conifer/conifer.py
+BREAKDANCER_path=/home/software/breakdancer/BD_bins/bin/breakdancer-max
+PINDEL_path=/home/software/pindel/pindel
+Bam_file_reference=/home/data/reference/GATKbundle/hg19/ucsc.hg19.fasta
+
+#######Sample Name List(with each line corresponding to one sample)##############
+sample1=Thala_sample1
+sample2=Thala_sample2
+sample3=Thala_sample3
+sample4=Thala_sample4
+sample5=Thala_sample5
+sample6=Thala_sample6
+sample7=Tha_WD
+sample8=PID17-121
+sample9=PID17-122
+sample10=PID18-020

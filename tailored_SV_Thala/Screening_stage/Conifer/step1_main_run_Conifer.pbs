@@ -1,0 +1,35 @@
+#!/bin/bash
+#PBS -N MainRun_Conifer
+#PBS -l mem=40g,nodes=1:ppn=5,walltime=18:00:00
+#PBS -q paedwy
+#PBS -m abe -M boxyjcao@connect.hku.hk
+#PBS -o MainRun_Conifer.out
+#PBS -e MainRun_Conifer.err
+#PBS -V
+
+SV_folder=/home/data/thala_project/SV
+Raw_Bam_file_folder=/home/data/thala_project/Bam_file
+cnvf='$SV_folder'/Conifer
+PROBE_FILE='$cnvf'/hg19_probe_coverage.bed
+SAMTOOLS=/home/yjcao/software/samtools-1.4/samtools
+CONIFER=/home/software/Conifer/conifer.py
+
+python $CONIFER analyze \
+    --probes $PROBE_FILE \
+    --rpkm_dir $cnvf/RPKM/ \
+    --output $cnvf/analysis.hdf5 \
+    --svd 3 \
+    --write_svals $cnvf/analysis.s.v.txt \
+    --plot_scree $cnvf/analysis.screeplot.png \
+    --write_sd $cnvf/analysis.sd_values.txt
+
+python $CONIFER call \
+    --input $cnvf/analysis.hdf5 \
+    --threshold 0.8 \
+    --output $cnvf/CNVcalls.txt
+
+mkdir $cnvf/plots/
+python  $CONIFER plotcalls \
+    --input $cnvf/analysis.hdf5 \
+    --calls $cnvf/CNVcalls.txt \
+    --output $cnvf/plots/

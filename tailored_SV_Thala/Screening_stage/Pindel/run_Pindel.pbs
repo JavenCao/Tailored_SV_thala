@@ -1,0 +1,68 @@
+#!/bin/bash
+#PBS -N pindel
+#PBS -l mem=10g,nodes=1:ppn=2,walltime=18:00:00
+#PBS -q paedwy
+#PBS -m abe -M boxyjcao@connect.hku.hk
+#PBS -o pindel.out
+#PBS -e pindel.err
+#PBS -V
+
+SV_folder=/home/data/thala_project/SV
+Raw_Bam_file_folder=/home/data/thala_project/Bam_file
+
+#-------1.including folderss
+# root folder for PINDEL
+Pwkd='$SV_folder'/P
+BDwkd='$SV_folder'/BD
+cd $Pwkd
+# folder for my software
+#ThalaPrewkd=/paedwy/disk1/yjcao/software
+# raw project folder
+#sample_f=/paedwy/disk1/yjcao/datacenter/Thala_Dif_Data/HKWGS
+
+#-------2.set software variables
+# pindel
+PINDEL=/home/software/pindel/pindel
+PINDEL2vcf=$SV_folder/Pindel/pindel2vcf
+# pindel bam2pindel.pl
+PBAM2CFG=$SV_folder/Pindel/bam2pindel.pl
+
+### temporatory block it 20181008
+# run pindel to call sv
+REFSEQ=/home/data/reference/GATKbundle/hg19/ucsc.hg19.fasta
+
+for i in for i in all_samples
+do
+$P -f $REFSEQ \
+-i $Pwkd/config/P_config_HK"$i".txt \
+-c chr16 \
+-b $BDwkd/BD_pre/BD_HK"$i".pre \
+-o $Pwkd/P_pre/BD_Pindel_HK"$i" \
+-r false \
+-t false \
+-l false \
+-k
+done
+
+# run pindel2vcf to convert Pindel output to VCF format
+for i in for i in all_samples
+do
+$Pvcf -p $Pwkd/P_pre/BD_Pindel_"$i"_D \
+   -r $REFSEQ \
+   -R hg19 \
+   -d 20090227 \
+   -v $Pwkd/P_pre/vcf/BD_Pindel_"$i".vcf
+done
+
+## find large deletions(>15k for SEA deletion)
+#module load vcftools
+#cd $Pwkd/P_pre/vcf/15k
+#
+#for i in 16H0060040 16H0060041 16H0080057 16H0090001 16H0090801 16H0420037 16H0440102 16H0490047 16H0670926 16H1151187 16H1410064 16H0550015 16H0960016 16H1060009 16H1320091 16H1790012 15H2230035 15H2290026 15H2450093 16H0230002 16H1530002 15H2240026 15H2380054 15H3580009 16H0290052 16H1950044 16H2160025 15H0130094 15H3020093 15H3280026 14H3250003 15H0650017 15H0710092 15H3410029 15H1110046 16H0350056 BFC0174 16H0500061 16H0560042 16H0130055 16H0581650 16H0642163 16H1200091 14H3500019 15H0470005 15H3490092 BFC0315 BFC0317 DP002 DP003 BFC0175 BFC0177 BFC0218 BFC0223 BFC0224 BFC0227 BFC0302 TH321 BFC0303 BFC0305 DP507 BFC0314 BFC0318 BFC0322 WL1 WL2 WL3 WL4 WL5 WL6 WL7 WL8 WL9 WL10 WL11 WL12 WL13 WL14 WL15 BFC0295 TH9457 TH9843 TH9859 TH10082 TH10163 TH10298 TH10322 BFC0288 BFC0326 BFC0328 BFC0335 BFC0336 BFC0337 BFC0338 BFC0251 BFC0257
+#do
+## filtering on vcf
+#cd $Pwkd/P_pre/vcf/15k
+#path2vcf=$Pwkd/P_pre/vcf/BD_Pindel_"$i".vcf
+#path2output=$Pwkd/P_pre/vcf/15k/15k_BD_Pindel_"$i".vcf
+#python VCFFiltering.py $path2vcf $path2output
+#done

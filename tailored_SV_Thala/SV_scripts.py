@@ -9,12 +9,12 @@ if __name__ == "__main__":
     Path_dict, SampleList = load_config_file("SV_configure_file.txt")
 
     SV_folder = Path_dict.get("SV_folder")
-    Screening_stage_F = SV_folder.rstip('/') + '/' + "Screening_stage"
-    each_software_F = list['Confier', 'Pindel', 'BreakDancer']
+    Screening_stage_F = SV_folder.rstrip('/') + '/' + "Screening_stage"
+    each_software_F = ['Conifer', 'Pindel', 'BreakDancer']
 
     Create_Folders(Screening_stage_F, each_software_F)
 
-    Conider_scripts_folder = os.getcwd() + '/Screening_stage/Confier'
+    Conider_scripts_folder = os.getcwd() + '/Screening_stage/Conifer'
     Pindel_scripts_folder = os.getcwd() + '/Screening_stage/Pindel'
     BreakDancer_scripts_folder = os.getcwd() + '/Screening_stage/BreakDancer'
 
@@ -29,10 +29,10 @@ if __name__ == "__main__":
 
     Conifer_Run_Modelfile = Conider_scripts_folder + '/step1_main_run_Conifer.pbs'
     ModifyAndCreate_v2(Conifer_Run_Modelfile, Path_dict,
-                       Conifer_Folder, SampleList, "Confier_Run")
+                       Conifer_Folder, SampleList, "Conifer_Run")
 
 # create BreakDancer scripts
-    BreakDancer_Folder = Screening_stage_F + '/BD'
+    BreakDancer_Folder = Screening_stage_F + '/BreakDancer'
     BreakDancer_Modefile = BreakDancer_scripts_folder + '/run_BreakDancer.pbs'
     ModifyAndCreate_v2(BreakDancer_Modefile, Path_dict,
                        BreakDancer_Folder, SampleList, "BreakDancer_Run")
@@ -51,7 +51,7 @@ else:
 def load_config_file(config_name):
     """ load parameters from a config file"""
     config_var = ['SV_folder', 'Raw_Bam_file_folder', 'samtools_path',
-                  'CONIFER_path', 'BREAKDANCER_path', 'PINDEL_path', 'Bam_file_reference']
+                  'CONIFER_path', 'BREAKDANCER_path', 'PINDEL_path', 'Bam_file_reference', 'Email']
 
     config_dict = {}
 

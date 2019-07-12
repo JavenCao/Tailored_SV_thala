@@ -8,10 +8,11 @@
 #PBS -V
 
 SV_folder=/home/data/thala_project/SV
-BDwkd='$SV_folder'/BD
+BDwkd='$SV_folder'/Breakdancer
 Raw_Bam_file_folder=/home/data/thala_project/Bam_file
 BREAKDANCER=/home/software/breakdancer/BD_bins/bin/breakdancer-max
-BDBAM2CFG=$SV_folder/tailored_SV_Thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
+BDBAM2CFG='$SV_folder'/tailored_SV_Thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
+BD_CHECK_CON_PY='$SV_folder'/tailored_SV_Thala/Screening_stage/BreakDancer/Modify_BD_config.py
 
 #-------3. run Breakdancer
 # generate BD configure file
@@ -37,7 +38,7 @@ for i in all_samples
 do
     if grep -Fq infinity $BDwkd/config/BD_"$i".cfg
         then
-            python Modify_BD_config.py $BDwkd/config/"$i".bam.SeqCap.insertsize_histogram $BDwkd/config/BD_"$i".cfg $BDwkd/config/modified_BD_"$i".cfg
+            python $BD_CHECK_CON_PY $BDwkd/config/"$i".bam.SeqCap.insertsize_histogram $BDwkd/config/BD_"$i".cfg $BDwkd/config/modified_BD_"$i".cfg
             #run BreakDancer with the new config
             $BD $BDwkd/config/modified_BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
     else

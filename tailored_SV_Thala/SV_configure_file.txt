@@ -2,6 +2,8 @@
 
 ########################### Users must manually set-up the below information for using SV_scripts.py ####################################
 
+Email=test@test.com
+
 ##working folder##
 SV_folder=/home/data/thala_project/SV
 

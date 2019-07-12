@@ -2,7 +2,7 @@
 
 This repository describes the general workflow for thalassaemia structural variation(SV) detection. Common thalassaemia SV includes deletions and du(tri)plications, such as South East Type deletion(--SEA), alpha-3.7kb deletion(-a3.7) and alpha-4.2kb deletion(-a4.2).
 
-Here, we want to emphasize that the input alignment BAM file should **not** go through rescue process in point mutation/Indel detection paradigm. If you starts with a large BAM file from whole genome sequencing, you are suggested to extract BAM records by within the following regions to accelerate the calling process, perhapes the command likes:
+Here, we want to emphasize that the input alignment BAM files should **not** go through rescue process in point mutation/Indel detection paradigm. If you start with a large BAM file from whole genome sequencing, you are suggested to extract BAM records by within the following regions to accelerate the calling process, perhapes the command likes:
 
     samtools view -h -L Thalassaemia_hg19_genome.bed -b -o output.bam input.bam
 

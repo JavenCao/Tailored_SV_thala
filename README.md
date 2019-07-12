@@ -18,6 +18,8 @@ In the next **fine profiling stage**, depth change profiles were updated within 
 
 ## Step-by-step description for thalassaemia SV detection
 
+This working example help users to generate structured folder layers and PBS scripts for job submission by qsub commands. However, users can still run it on non-PBS managed servers.
+
 * Step1: install the forementioned software.
 
 * Step2: download this repository to the working directory(such as /home/data/Thala/SV/)by running the follwing commands:

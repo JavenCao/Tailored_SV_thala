@@ -9,39 +9,47 @@ if __name__ == "__main__":
     Path_dict, SampleList = load_config_file("SV_configure_file.txt")
 
     SV_folder = Path_dict.get("SV_folder")
-    two_stage = list['Screening_stage/Confier', 'Screening_stage/Pindel', 'Screening_stage/BreakDancer',
-                     'Fine_Profiling_stage/Confier', 'Fine_Profiling_stage/Pindel', 'Fine_Profiling_stage/BreakDancer', 'Screening_stage/Confier/RPKM']
+    Screening_stage_F = SV_folder.rstip('/') + '/' + "Screening_stage"
+    each_software_F = list['Confier', 'Pindel', 'BreakDancer']
 
-    Create_Folders(OuterSide, two_stage)
-    Conider_scripts_folder = os.getcwd() + '/Confier'
-    Pindel_scripts_folder = os.getcwd() + '/Pindel'
-    BreakDancer_scripts_folder = os.getcwd() + '/BreakDancer'
+    Create_Folders(Screening_stage_F, each_software_F)
 
-# def ModifyAndCreate_v2(modelfile, Path_dict, TargetFolder, SampleList, prefix)
+    Conider_scripts_folder = os.getcwd() + '/Screening_stage/Confier'
+    Pindel_scripts_folder = os.getcwd() + '/Screening_stage/Pindel'
+    BreakDancer_scripts_folder = os.getcwd() + '/Screening_stage/BreakDancer'
 
 # create Conifer scripts
-
+    Conifer_Folder = Screening_stage_F + '/Conifer'
+    Conifer_RPKM_Folder = Screening_stage_F + '/Conifer/RPKM'
+    os.mkdir(Conifer_RPKM_Folder)
     Conifer_RPKM_Modelfile = Conider_scripts_folder + '/step0_rpkm_model.pbs'
 
     ModifyAndCreate_v2(Conifer_RPKM_Modelfile, Path_dict,
-                       Conider_scripts_folder, SampleList, "RPMK_cal")
+                       Conifer_Folder, SampleList, "RPMK_cal")
 
     Conifer_Run_Modelfile = Conider_scripts_folder + '/step1_main_run_Conifer.pbs'
     ModifyAndCreate_v2(Conifer_Run_Modelfile, Path_dict,
-                       Conider_scripts_folder, SampleList, "Confier_Run")
-# create Pindel scripts
+                       Conifer_Folder, SampleList, "Confier_Run")
 
+# create BreakDancer scripts
+    BreakDancer_Folder = Screening_stage_F + '/BD'
+    BreakDancer_Modefile = BreakDancer_scripts_folder + '/run_BreakDancer.pbs'
+    ModifyAndCreate_v2(BreakDancer_Modefile, Path_dict,
+                       BreakDancer_Folder, SampleList, "BreakDancer_Run")
+
+# create Pindel scripts
+    Pindel_Folder = Screening_stage_F + '/Pindel'
     Pindel_Modefile = Pindel_scripts_folder + '/run_Pindel.pbs'
     ModifyAndCreate_v2(Pindel_Modefile, Path_dict,
-                       Pindel_scripts_folder, SampleList, "Pindel_Run")
-    # create BreakDancer scripts
+                       Pindel_Folder, SampleList, "Pindel_Run")
+
 
 else:
     pass
 
 
 def load_config_file(config_name):
-    """ load config values from config file"""
+    """ load parameters from a config file"""
     config_var = ['SV_folder', 'Raw_Bam_file_folder', 'samtools_path',
                   'CONIFER_path', 'BREAKDANCER_path', 'PINDEL_path', 'Bam_file_reference']
 
@@ -66,10 +74,13 @@ def load_config_file(config_name):
 
 def Create_Folders(OuterSide, InnerListNames):
     """First create OuterSide folder, then Within the OuterSide, create each Inner folder in the order of InnerListNanes"""
-    os.mkdir(OuterSide)
-    for i in InnerListNames:
-        subfolder = OuterSide + '/' + i
-        os.mkdir(subfolder)
+    try:
+        os.mkdir(OuterSide)
+        for i in InnerListNames:
+            subfolder = OuterSide + '/' + i
+            os.mkdir(subfolder)
+    except OSError:
+        print "Please delete all the folders and re-run the program again!"
     return 1
 
 
@@ -121,13 +132,14 @@ def ModifyAndCreate_v2(modelfile, Path_dict, TargetFolder, SampleList, prefix):
                 l[i] = "REFSEQ=" + Path_dict.get("Bam_file_reference") + '\n'
 
             elif(l[i].startswith("BREAKDANCER")):
-                l[i] = "BREAKDANCER=" + Path_dict.get("BREAKDANCER_path") + '\n'
+                l[i] = "BREAKDANCER=" + \
+                    Path_dict.get("BREAKDANCER_path") + '\n'
 
             elif(l[i].startswith("for i in all_samples")):
                 l[i] = None
                 t = ''
                 for sample in SampleList:
-                t = t + sample + ' '
+                    t = t + sample + ' '
                 newline = "for i in " + t + '\n'
                 l[i] = newline
 

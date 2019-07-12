@@ -7,25 +7,16 @@
 #PBS -e BreakDancer.err
 #PBS -V
 
-#-------1.including folderss
 SV_folder=/home/data/thala_project/SV
-# root folder for BreakDancer
 BDwkd='$SV_folder'/BD
-# folder for my software
-#ThalaPrewkd=/paedwy/disk1/yjcao/software/
-# raw project folder
-#sample_f=/paedwy/disk1/yjcao/datacenter/Thala_Dif_Data/HKWGS
 Raw_Bam_file_folder=/home/data/thala_project/Bam_file
-#-------2.set software variables
-# breakdancer-max
 BREAKDANCER=/home/software/breakdancer/BD_bins/bin/breakdancer-max
-# breakdancer bam2cfg.pl
-BDBAM2CFG=$SV_folder/BD/bam2cfg.pl
+BDBAM2CFG=$SV_folder/tailored_SV_Thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
 
 #-------3. run Breakdancer
 # generate BD configure file
-cd $BDwkd/config
-for i in for i in all_samples
+mkdir $BDwkd/config
+for i in all_samples
 do
 perl $BDBAM2CFG \
 -q 30 \
@@ -34,27 +25,23 @@ perl $BDBAM2CFG \
 -c 5 \
 -g \
 -v 3 \
-$Raw_Bam_file_folder/"$i"/good_"$i".bam > $BDwkd/config/BD_HK"$i".cfg
+$Raw_Bam_file_folder/"$i"/"$i".bam > $BDwkd/config/BD_"$i".cfg
 done
 
-
-# check if the configue file match the normal distribution
+# check if the configue file match the symmetric distribution
 # if yes, run BreakDancer
 # if no, modify the configure file, then run Breakdancer
-###########cd $BDwkd
-###########for i in {1..375}
-###########do
-###########    if grep -Fq infinity $BDwkd/config/BD_HK"$i".cfg
-###########        then
-###########            python Modify_BD_config.py $BDwkd/config/good_"$i".bam.SeqCap.insertsize_histogram $BDwkd/config/BD_"$i".cfg $BDwkd/config/modified_BD_"$i".cfg
-###########            #run BreakDancer with the new config
-###########            $BD $BDwkd/config/modified_BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
-###########    else
-###########        #run BreakDancer with the original configure file
-###########        $BD $BDwkd/config/BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
-###########    fi
-###########done
-###########
-###########
-###########
-
+mkdir $BDwkd/BD_pre
+cd $BDwkd
+for i in all_samples
+do
+    if grep -Fq infinity $BDwkd/config/BD_"$i".cfg
+        then
+            python Modify_BD_config.py $BDwkd/config/"$i".bam.SeqCap.insertsize_histogram $BDwkd/config/BD_"$i".cfg $BDwkd/config/modified_BD_"$i".cfg
+            #run BreakDancer with the new config
+            $BD $BDwkd/config/modified_BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
+    else
+        #run BreakDancer with the original configure file
+        $BD $BDwkd/config/BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
+    fi
+done

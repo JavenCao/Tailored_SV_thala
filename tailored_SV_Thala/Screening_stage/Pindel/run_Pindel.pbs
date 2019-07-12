@@ -14,45 +14,61 @@ Raw_Bam_file_folder=/home/data/thala_project/Bam_file
 # root folder for PINDEL
 Pwkd='$SV_folder'/P
 BDwkd='$SV_folder'/BD
-cd $Pwkd
-# folder for my software
-#ThalaPrewkd=/paedwy/disk1/yjcao/software
-# raw project folder
-#sample_f=/paedwy/disk1/yjcao/datacenter/Thala_Dif_Data/HKWGS
-
 #-------2.set software variables
 # pindel
 PINDEL=/home/software/pindel/pindel
-PINDEL2vcf=$SV_folder/Pindel/pindel2vcf
-# pindel bam2pindel.pl
-PBAM2CFG=$SV_folder/Pindel/bam2pindel.pl
+# pindel pindel2vcf.pl
+PINDEL2vcf='$PINDEL'/pindel2vcf
 
-### temporatory block it 20181008
 # run pindel to call sv
 REFSEQ=/home/data/reference/GATKbundle/hg19/ucsc.hg19.fasta
 
-for i in for i in all_samples
+
+# step1: generating configure files for each sample's bam file
+mkdir $Pwkd/config/
+
+for i in all_samples
+do
+    echo -e "$Raw_Bam_file_folder"/"$i"/"$i".bam"\t"400"\t""$i" > $Pwkd/config/P_config_"$i".txt
+done
+
+mkdir $Pwkd/P_pre/chr16
+for i in samplelist
 do
 $P -f $REFSEQ \
--i $Pwkd/config/P_config_HK"$i".txt \
+-i $Pwkd/config/P_config_"$i".txt \
 -c chr16 \
--b $BDwkd/BD_pre/BD_HK"$i".pre \
--o $Pwkd/P_pre/BD_Pindel_HK"$i" \
+-b $BDwkd/BD_pre/BD_"$i".pre \
+-o $Pwkd/P_pre/chr16/chr16_BD_Pindel_"$i" \
 -r false \
 -t false \
 -l false \
 -k
 done
 
-# run pindel2vcf to convert Pindel output to VCF format
-for i in for i in all_samples
+mkdir $Pwkd/P_pre/chr11
+for i in samplelist
 do
-$Pvcf -p $Pwkd/P_pre/BD_Pindel_"$i"_D \
-   -r $REFSEQ \
-   -R hg19 \
-   -d 20090227 \
-   -v $Pwkd/P_pre/vcf/BD_Pindel_"$i".vcf
+$P -f $REFSEQ \
+-i $Pwkd/config/P_config_"$i".txt \
+-c chr11 \
+-b $BDwkd/BD_pre/BD_"$i".pre \
+-o $Pwkd/P_pre/chr11/chr11_BD_Pindel_"$i" \
+-r false \
+-t false \
+-l false \
+-k
 done
+
+# # run pindel2vcf to convert Pindel output to VCF format
+# for i in for i in all_samples
+# do
+# $Pvcf -p $Pwkd/P_pre/BD_Pindel_"$i"_D \
+#    -r $REFSEQ \
+#    -R hg19 \
+#    -d 20090227 \
+#    -v $Pwkd/P_pre/vcf/BD_Pindel_"$i".vcf
+# done
 
 ## find large deletions(>15k for SEA deletion)
 #module load vcftools

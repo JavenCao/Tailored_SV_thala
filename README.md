@@ -6,6 +6,16 @@ Here, we want to emphasize that the input alignment BAM files should **not** go 
 
     samtools view -h -L Thalassaemia_hg19_genome.bed -b -o output.bam input.bam
 
+Also, make sure that your BAM files are organised by the following structure. In short, each BAM file locates in each sample's folder:
+
+        | -- Bam_file_folder
+        |   | -- Sample1
+        |   |   | -- Sample1.bam
+        |   | -- Thala_2
+        |   |   | -- Thala_2.bam
+        |   | -- TJLE
+        |   |   | -- TJLE.bam
+
 To detect thalassaemia SVs, the selected software [BreakDancer](https://github.com/genome/breakdancer), [Pindel](https://github.com/genome/pindel) and [Conifer](http://conifer.sourceforge.net/) were jointly used with tailored parameters. More details about the parameter settings and considerations can be found in the [original paper](blank).
 
 Also, a two-stage strategy is used to get a confident SV prediction:
@@ -34,7 +44,24 @@ This working example help users to generate structured folder layers and PBS scr
 
       python SV_scripts.py
 
-* Step5: qsub scripts for Conifer, Pindel, BreakDancer
+After Step4, you will have the follwing structure:
 
+    | -- /home/data/Thala/SV
+    |   | -- Tailored_SV_thala
+    |   |   | -- all the supproting scripts(Don't run or change them, just leave them there)
+    |    |   | ... ...
+    |   |   | -- Screening_stage
+    |   |   |   | -- Conifer
+    |   |   |   |    | -- RPKM_cal.pbs
+    |   |   |   |    | -- Conifer_Run.pbs
+    |   |   |   |    | -- RPKM
+    |   |   |   | -- BreakDancer
+    |   |   |   |    | -- BreakDancer_Run.pbs
+    |   |   |   | -- Pindel
+    |   |   |   |    | -- Pindel_Run.pbs
 
+* Step5: run these scripts by qsub(PBS platform) or bash(PBS-free platform) for Conifer, BreakDancer, Pindel.
 
+Conifer: first calculate RPKM, then call the CNVs.
+
+BreakDancer should go before Pindel, since results from BreakDancer are used as one of the input for Pindel

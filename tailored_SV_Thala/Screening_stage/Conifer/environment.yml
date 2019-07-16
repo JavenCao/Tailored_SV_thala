@@ -1,0 +1,13 @@
+name: conifer
+channels:
+  - https://repo.anaconda.com/pkgs/free
+  - bioconda
+  - r
+  - defaults
+dependencies:
+ - pysam = 0.8.3
+ - pytables = 2.4.0
+ - numpy = 1.9.3
+ - matplotlib = 2.2.3
+ - hdf5=1.8.13=1
+ - htslib=1.9=hc238db4_4

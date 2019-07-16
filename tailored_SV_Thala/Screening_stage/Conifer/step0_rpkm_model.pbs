@@ -14,6 +14,7 @@ PROBE_FILE="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/Coni
 SAMTOOLS=/home/yjcao/software/samtools-1.4/samtools
 CONIFER=/home/software/Conifer/conifer.py
 
+source activate conifer
 for i in all_samples
 do
     $SAMTOOLS index $Raw_Bam_file_folder/"$i"/"$i".bam
@@ -22,3 +23,4 @@ do
         --input $Raw_Bam_file_folder/"$i"/"$i".bam \
         --output $cnvf/RPKM/"$i".rpkm.txt
 done
+source deactivate

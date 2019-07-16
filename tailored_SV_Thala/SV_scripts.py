@@ -25,7 +25,7 @@ if __name__ == "__main__":
     Conifer_RPKM_Modelfile = Conider_scripts_folder + '/step0_rpkm_model.pbs'
 
     ModifyAndCreate_v2(Conifer_RPKM_Modelfile, Path_dict,
-                       Conifer_Folder, SampleList, "RPMK_cal")
+                       Conifer_Folder, SampleList, "RPKM_cal")
 
     Conifer_Run_Modelfile = Conider_scripts_folder + '/step1_main_run_Conifer.pbs'
     ModifyAndCreate_v2(Conifer_Run_Modelfile, Path_dict,

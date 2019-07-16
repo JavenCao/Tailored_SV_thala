@@ -11,8 +11,8 @@ SV_folder=/home/data/thala_project/SV
 BDwkd="$SV_folder"/Screening_stage/BreakDancer
 Raw_Bam_file_folder=/home/data/thala_project/Bam_file
 BREAKDANCER=/home/software/breakdancer/BD_bins/bin/breakdancer-max
-BDBAM2CFG="$SV_folder"/tailored_SV_Thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
-BD_CHECK_CON_PY="$SV_folder"/tailored_SV_Thala/Screening_stage/BreakDancer/Modify_BD_config.py
+BDBAM2CFG="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
+BD_CHECK_CON_PY="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/Modify_BD_config.py
 
 #-------3. run Breakdancer
 # generate BD configure file

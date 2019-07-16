@@ -9,11 +9,12 @@
 
 SV_folder=/home/data/thala_project/SV
 Raw_Bam_file_folder=/home/data/thala_project/Bam_file
-cnvf='$SV_folder'/Conifer
-PROBE_FILE='$cnvf'/hg19_probe_coverage.bed
+cnvf="$SV_folder"/Screening_stage/Conifer
+PROBE_FILE="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/Conifer/hg19_probe_coverage.bed
 SAMTOOLS=/home/yjcao/software/samtools-1.4/samtools
 CONIFER=/home/software/Conifer/conifer.py
 
+source activate conifer
 python $CONIFER analyze \
     --probes $PROBE_FILE \
     --rpkm_dir $cnvf/RPKM/ \
@@ -33,3 +34,4 @@ python  $CONIFER plotcalls \
     --input $cnvf/analysis.hdf5 \
     --calls $cnvf/CNVcalls.txt \
     --output $cnvf/plots/
+source deactivate

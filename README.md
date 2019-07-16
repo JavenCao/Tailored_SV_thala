@@ -30,6 +30,9 @@ This working example help users to generate structured folder layers and PBS scr
 
 * Step1: install the forementioned software, [BreakDancer](https://github.com/genome/breakdancer), [Pindel](https://github.com/genome/pindel) and [Conifer](http://conifer.sourceforge.net/).
 
+You will need the [Anaconda](https://docs.conda.io/en/latest/) for Python package manager for Conifer:
+
+
 * Step2: download this repository to the working directory(such as /home/data/Thala/SV/)by running the follwing commands:
 
       cd /home/data/Thala/SV/

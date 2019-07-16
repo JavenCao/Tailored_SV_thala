@@ -130,7 +130,7 @@ def ModifyAndCreate_v2(modelfile, Path_dict, TargetFolder, SampleList, prefix):
             elif(l[i].startswith("CONIFER")):
                 l[i] = "CONIFER=" + Path_dict.get("CONIFER_path") + '\n'
 
-            elif(l[i].startswith("PINDEL")):
+            elif(l[i].startswith("PINDEL=")):
                 l[i] = "PINDEL=" + Path_dict.get("PINDEL_path") + '\n'
 
             elif(l[i].startswith("REFSEQ")):

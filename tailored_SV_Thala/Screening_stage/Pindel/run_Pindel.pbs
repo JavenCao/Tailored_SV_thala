@@ -13,7 +13,7 @@ Raw_Bam_file_folder=/home/data/thala_project/Bam_file
 #-------1.including folderss
 # root folder for PINDEL
 Pwkd="$SV_folder"/Screening_stage/Pindel
-BDwkd='$SV_folder'/Screening_stage/BreakDancer
+BDwkd="$SV_folder"/Screening_stage/BreakDancer
 #-------2.set software variables
 # pindel
 PINDEL=/home/software/pindel/pindel
@@ -32,6 +32,7 @@ do
     echo -e "$Raw_Bam_file_folder"/"$i"/"$i".bam"\t"400"\t""$i" > $Pwkd/config/P_config_"$i".txt
 done
 
+mkdir $Pwkd/P_pre/
 mkdir $Pwkd/P_pre/chr16
 for i in all_samples
 do

@@ -60,7 +60,7 @@ After Step4, you will have the follwing structure:
     |   |   |   | -- Pindel
     |   |   |   |    | -- Pindel_Run.pbs
 
-* Step5: run these scripts by qsub(PBS platform) or bash(PBS-free platform) for Conifer, BreakDancer, Pindel.
+* Step5: go to the Screening_stage folder, and run these scripts by qsub(PBS platform) or bash(PBS-free platform) for Conifer, BreakDancer, Pindel.
 
 Conifer: first calculate RPKM, then call the CNVs.
 

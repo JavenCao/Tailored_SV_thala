@@ -70,3 +70,11 @@ After Step4, you will have the follwing structure:
 Conifer: first calculate RPKM, then call the CNVs.
 
 BreakDancer should go before Pindel, since results from BreakDancer are used as one of the input for Pindel
+
+## License
+
+This project is licensed under GNU GPL v3.
+
+## Authors
+
+Cao Yujie(The University of Hong Kong)

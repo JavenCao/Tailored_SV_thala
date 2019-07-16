@@ -12,13 +12,13 @@ Raw_Bam_file_folder=/home/data/thala_project/Bam_file
 
 #-------1.including folderss
 # root folder for PINDEL
-Pwkd='$SV_folder'/P
-BDwkd='$SV_folder'/BD
+Pwkd="$SV_folder"/Screening_stage/Pindel
+BDwkd='$SV_folder'/Screening_stage/BreakDancer
 #-------2.set software variables
 # pindel
 PINDEL=/home/software/pindel/pindel
 # pindel pindel2vcf.pl
-PINDEL2vcf='$PINDEL'/pindel2vcf
+PINDEL2vcf="$PINDEL"/pindel2vcf
 
 # run pindel to call sv
 REFSEQ=/home/data/reference/GATKbundle/hg19/ucsc.hg19.fasta

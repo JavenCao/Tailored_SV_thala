@@ -9,8 +9,8 @@
 
 SV_folder=/home/data/thala_project/SV
 Raw_Bam_file_folder=/home/data/thala_project/Bam_file
-cnvf='$SV_folder'/Conifer
-PROBE_FILE='$cnvf'/hg19_probe_coverage.bed
+cnvf="$SV_folder"/Conifer
+PROBE_FILE="$cnvf"/hg19_probe_coverage.bed
 SAMTOOLS=/home/yjcao/software/samtools-1.4/samtools
 CONIFER=/home/software/Conifer/conifer.py
 

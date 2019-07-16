@@ -49,7 +49,7 @@ After Step4, you will have the follwing structure:
     | -- /home/data/Thala/SV
     |   | -- Tailored_SV_thala
     |   |   | -- all the supproting scripts(Don't run or change them, just leave them there)
-    |    |   | ... ...
+    |   |   | ... ...
     |   |   | -- Screening_stage
     |   |   |   | -- Conifer
     |   |   |   |    | -- RPKM_cal.pbs

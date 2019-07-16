@@ -80,7 +80,12 @@ def Create_Folders(OuterSide, InnerListNames):
             subfolder = OuterSide + '/' + i
             os.mkdir(subfolder)
     except OSError:
-        print "Please delete all the folders and re-run the program again!"
+        print """
+        |---------------------------------------|
+        | Please delete all the newly created   |
+        | folders and re-run the program again !|
+        |---------------------------------------|
+        """
     return 1
 
 

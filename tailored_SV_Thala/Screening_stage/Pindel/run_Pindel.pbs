@@ -17,8 +17,8 @@ BDwkd='$SV_folder'/Screening_stage/BreakDancer
 #-------2.set software variables
 # pindel
 PINDEL=/home/software/pindel/pindel
-# pindel pindel2vcf.pl
-PINDEL2vcf="$PINDEL"/pindel2vcf
+# pindel pindel2vcf
+PINDEL2vcf="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/Pindel/pindel2vcf
 
 # run pindel to call sv
 REFSEQ=/home/data/reference/GATKbundle/hg19/ucsc.hg19.fasta

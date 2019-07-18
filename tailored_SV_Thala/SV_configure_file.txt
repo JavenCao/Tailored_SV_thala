@@ -2,8 +2,6 @@
 
 ########################### Users must manually set-up the below information for using SV_scripts.py ####################################
 
-Email=test@test.com
-
 ##working folder##
 SV_folder=/home/data/thala_project/SV
 
@@ -16,6 +14,19 @@ CONIFER_path=/home/software/Conifer/conifer.py
 BREAKDANCER_path=/home/software/breakdancer/BD_bins/bin/breakdancer-max
 PINDEL_path=/home/software/pindel/pindel
 Bam_file_reference=/home/data/reference/GATKbundle/hg19/ucsc.hg19.fasta
+
+
+##PBS system parameters(if your server is PBS-free, please just ignore this part)##########
+##The resource request must specify the queue name(q), job walltime (hours:minutes:seconds), number of nodes(nodes), and processor cores per node (ppn) and the required total memory (mem).
+##Also, specifies the email address that should be used when the PBS system sends message emails when the job aborts, begins, or ends(abe).
+##Suggestions: walltime=18:00:00, ppn=10, mem=40g
+queue=medium
+walltime=10:00:00
+nodes=1
+ppn=5
+mem=10g
+Email=test@test.com
+
 
 #######Sample Name List(with each line corresponding to one sample)##############
 sample1=Thala_sample1

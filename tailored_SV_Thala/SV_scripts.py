@@ -51,7 +51,7 @@ else:
 def load_config_file(config_name):
     """ load parameters from a config file"""
     config_var = ['SV_folder', 'Raw_Bam_file_folder', 'samtools_path',
-                  'CONIFER_path', 'BREAKDANCER_path', 'PINDEL_path', 'Bam_file_reference', 'Email']
+                  'CONIFER_path', 'BREAKDANCER_path', 'PINDEL_path', 'Bam_file_reference', 'queue', 'walltime', 'nodes', 'ppn', 'mem', 'Email']
 
     config_dict = {}
 
@@ -97,6 +97,14 @@ def ModifyAndCreate_v2(modelfile, Path_dict, TargetFolder, SampleList, prefix):
             # Set the job name
             if(l[i].startswith("#PBS -N")):
                 l[i] = "#PBS -N " + prefix + '\n'
+
+            elif(l[i].startswith("#PBS -l")):
+                l[i] = """#PBS -l mem={0},nodes={1}:ppn={2},walltime={3}{4}""".format(Path_dict.get(
+                    'mem'), Path_dict.get('nodes'), Path_dict.get('ppn'), Path_dict.get('walltime'), '\n')
+
+            elif(l[i].startswith("#PBS -q")):
+                l[i] = """#PBS -q {0}{1}""".format(
+                    Path_dict.get('queue'), '\n')
 
             elif(l[i].startswith("#PBS -m abe -M")):
                 l[i] = "#PBS -m abe -M " + Path_dict.get('Email') + '\n'

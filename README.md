@@ -9,11 +9,11 @@ Here, we want to emphasize that the input alignment BAM files should **not** go 
 Also, make sure that your BAM files are organised by the following structure. In short, each BAM file locates in each sample's folder:
 
         | -- Bam_file_folder
-        |   | -- Sample1
+        |   | -- Sample1_folder
         |   |   | -- Sample1.bam
-        |   | -- Thala_2
+        |   | -- Thala_2_folder
         |   |   | -- Thala_2.bam
-        |   | -- TJLE
+        |   | -- TJLE_folder
         |   |   | -- TJLE.bam
 
 To detect thalassaemia SVs, the selected software [BreakDancer](https://github.com/genome/breakdancer), [Pindel](https://github.com/genome/pindel) and [Conifer](http://conifer.sourceforge.net/) were jointly used with tailored parameters. More details about the parameter settings and considerations can be found in the [original paper](blank).

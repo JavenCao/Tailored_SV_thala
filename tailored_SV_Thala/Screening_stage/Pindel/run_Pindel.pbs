@@ -82,7 +82,7 @@ done
 
 # find exact mathed SVs
 # find time to implement in python
-awk 'BEGIN{FS=OFS="\t"}NR==FNR{a[$1"_"$2"_"$3]=$4"\t"$5}NR>FNR{if(a[$1"_"$2"_"$3]){print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"a[$1"_"$2"_"$3]}}' "$Pwkd"/known_SV_Deletion_30bp.bed Pindel_Deletion.pre > Causal_Pindel_Deletion.pre
+awk 'BEGIN{FS=OFS="\t"}NR==FNR{a[$1"_"$2"_"$3]=$4"\t"$5}NR>FNR{if(a[$1"_"$2"_"$3]){print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"a[$1"_"$2"_"$3]}}' "$Pwkd"/sorted.known_SV_Deletion_30bp.bed Pindel_Deletion.pre > Causal_Pindel_Deletion.pre
 
 
 

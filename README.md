@@ -71,7 +71,21 @@ Conifer: first calculate RPKM, then call the CNVs.
 
 BreakDancer should go before Pindel, since results from BreakDancer are used as one of the input for Pindel
 
-* Step5: Find known causal steps.
+    | -- /home/data/Thala/SV
+    |   | -- Tailored_SV_thala
+    |   |   | -- all the supproting scripts(Don't run or change them, just leave them there)
+    |   |   | ... ...
+    |   |   | -- Screening_stage
+    |   |   |   | -- Conifer
+    |   |   |   |    | -- RPKM_cal.pbs
+    |   |   |   |    | -- Conifer_Run.pbs
+    |   |   |   |    | -- RPKM
+    |   |   |   | -- BreakDancer
+    |   |   |   |    | -- BreakDancer_Run.pbs
+    |   |   |   | -- Pindel
+    |   |   |   |    | -- P_pre
+    |   |   |   |    |    | -- chr16/QCed_Report/Causal_Pindel_Deletion.pre
+    |   |   |   |    |    | -- chr11/QCed_Report/Causal_Pindel_Deletion.pre
 
 Here, for the screening purpose, we only focus on known causal SVs. Users could writing their own scripts to filter the resutls.
 
@@ -88,10 +102,6 @@ Raw results are stored in the following folders for the Pindel, BreakDancer and 
     |   |   |   |    | -- BD_pre/(All files)
     |   |   |   | -- Pindel
     |   |   |   |    | -- P_Pre/(All files)
-
-Next we run the following code to find known causals:
-
-cd /path/to/Pindel/P_Pre
 
 
 ## License

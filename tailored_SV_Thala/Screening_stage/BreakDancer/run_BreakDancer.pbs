@@ -41,9 +41,9 @@ do
         then
             python $BD_CHECK_CON_PY $BDwkd/config/"$i".bam.SeqCap.insertsize_histogram $BDwkd/config/BD_"$i".cfg $BDwkd/config/modified_BD_"$i".cfg
             #run BreakDancer with the new config
-            $BD $BDwkd/config/modified_BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
+            $BREAKDANCER $BDwkd/config/modified_BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
     else
         #run BreakDancer with the original configure file
-        $BD $BDwkd/config/BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
+        $BREAKDANCER $BDwkd/config/BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
     fi
 done

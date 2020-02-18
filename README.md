@@ -34,9 +34,9 @@ This working example help users to generate structured folder layers and PBS scr
 
       cd /home/data/Thala/SV/
       git clone https://github.com/JavenCao/Tailored_SV_thala.git
-      
+
 You will need the [Anaconda](https://docs.conda.io/en/latest/) for Python package manager for Conifer:
-    
+
     cd ./Tailored_SV_thala/tailored_SV_Thala/
     conda env create --file environment.yml
 
@@ -70,6 +70,29 @@ After Step4, you will have the follwing structure:
 Conifer: first calculate RPKM, then call the CNVs.
 
 BreakDancer should go before Pindel, since results from BreakDancer are used as one of the input for Pindel
+
+* Step5: Find known causal steps.
+
+Here, for the screening purpose, we only focus on known causal SVs. Users could writing their own scripts to filter the resutls.
+
+Raw results are stored in the following folders for the Pindel, BreakDancer and Conifer:
+
+    | -- /home/data/Thala/SV
+    |   | -- Tailored_SV_thala
+    |   |   | -- all the supproting scripts(Don't run or change them, just leave them there)
+    |   |   | ... ...
+    |   |   | -- Screening_stage
+    |   |   |   | -- Conifer
+    |   |   |   |    | -- CNVcalls.txt
+    |   |   |   | -- BreakDancer
+    |   |   |   |    | -- BD_pre/(All files)
+    |   |   |   | -- Pindel
+    |   |   |   |    | -- P_Pre/(All files)
+
+Next we run the following code to find known causals:
+
+cd /path/to/Pindel/P_Pre
+
 
 ## License
 

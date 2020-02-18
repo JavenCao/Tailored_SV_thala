@@ -10,7 +10,7 @@ do
 	# focusing on deletion only
 	for i in simu_{1491..1730}
 	do
-		awk  '{if(/BP_range/ && ($11-$10 >100)){print}}' "$chr"_BD_Pindel_"$i"_D | awk -v Sname=$i '{if($16 >= 5){print $8"\t"$10"\t"$11"\t"$11-$10"\t"$16"\t"Sname}}' >> ../QCed_Report/Pindel_Deletion.pre
+		awk  '{if(/BP_range/ && ($11-$10 >100)){print}}' "$chr"_BD_Pindel_"$i"_D | awk -v Sname=$i '{if($16 >= 1){print $8"\t"$10"\t"$11"\t"$11-$10"\t"$16"\t"Sname}}' >> ../QCed_Report/Pindel_Deletion.pre
 	done
 	cd ../QCed_Report
 done

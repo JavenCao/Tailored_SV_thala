@@ -69,6 +69,9 @@ After Step4, you will have the follwing structure:
 
 Conifer: first calculate RPKM, then call the CNVs.
 
+      cd ./Tailored_SV_thala/tailored_SV_Thala/Conifer
+      qsub Conifer_Run.pbs
+
 BreakDancer should go before Pindel, since results from BreakDancer are used as one of the input for Pindel
 
     | -- /home/data/Thala/SV

@@ -81,10 +81,10 @@ def Create_Folders(OuterSide, InnerListNames):
             os.mkdir(subfolder)
     except OSError:
         print """
-        |---------------------------------------|
-        | Please delete all the newly created   |
-        | folders and re-run the program again !|
-        |---------------------------------------|
+        |-----------------------------------------------------|
+        | Please delete all the newly created Screening_stage |
+        | folders and re-run this script again !              |
+        |-----------------------------------------------------|
         """
     return 1
 

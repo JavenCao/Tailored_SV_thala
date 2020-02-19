@@ -30,8 +30,14 @@ python $CONIFER call \
     --output $cnvf/CNVcalls.txt
 
 mkdir $cnvf/plots/
-python  $CONIFER plotcalls \
-    --input $cnvf/analysis.hdf5 \
-    --calls $cnvf/CNVcalls.txt \
-    --output $cnvf/plots/
+
+# 2020-Feb-19th: should plot the positive samples in the screening staage
+# chr11 and chr16
+
+
+
+#python  $CONIFER plotcalls \
+#    --input $cnvf/analysis.hdf5 \
+#    --calls $cnvf/CNVcalls.txt \
+#    --output $cnvf/plots/
 source deactivate

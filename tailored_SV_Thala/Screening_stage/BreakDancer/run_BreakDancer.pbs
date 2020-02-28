@@ -14,7 +14,6 @@ BREAKDANCER=/home/software/breakdancer/BD_bins/bin/breakdancer-max
 BDBAM2CFG="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
 BD_CHECK_CON_PY="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/Modify_BD_config.py
 
-#-------3. run Breakdancer
 # generate BD configure file
 mkdir $BDwkd/config
 cd $BDwkd/config
@@ -26,7 +25,6 @@ perl $BDBAM2CFG \
 -h \
 -c 5 \
 -g \
--v 3 \
 $Raw_Bam_file_folder/"$i"/"$i".bam > $BDwkd/config/BD_"$i".cfg
 done
 
@@ -41,9 +39,15 @@ do
         then
             python $BD_CHECK_CON_PY $BDwkd/config/"$i".bam.SeqCap.insertsize_histogram $BDwkd/config/BD_"$i".cfg $BDwkd/config/modified_BD_"$i".cfg
             #run BreakDancer with the new config
-            $BREAKDANCER $BDwkd/config/modified_BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
+            # -q 0: we skip the MAQ=0 reads only, not -q 35, to increase sensitivity
+            $BREAKDANCER -q 0 $BDwkd/config/modified_BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
     else
         #run BreakDancer with the original configure file
-        $BREAKDANCER $BDwkd/config/BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
+        # -q 0: we skip the MAQ=0 reads only, not -q 35, to increase sensitivity
+        $BREAKDANCER -q 0 $BDwkd/config/BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
     fi
 done
+
+
+# filtering steps Feb 27, 2020
+

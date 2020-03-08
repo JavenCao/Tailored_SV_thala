@@ -24,32 +24,17 @@ chr11	5246239	5270099	HbVar.2872	Algerian HPFH deletion	U01317.1:g.[(48747_72606
 chr11	5246294	5258116	HbVar.1031	Black (deltabeta)0-Thal	NG_000007.3:g.(60530_60730)_(72351_72551)del11822	deletions
 chr11	5246356	5270084	HbVar.2874	French West-Indies HPFH deletion	U01317.1:g.48762_72489del23728insCAGCAGGAAAGTGTGAGAAG	deletions
 chr11	5246618	5247237	HbVar.979	619 bp deletion beta0	NG_000007.3:g.71609_72227del619	deletions
-chr11	5246724	5246737	HbVar.966	3'UTR (-GCATCTGGATTCT) beta (0 or + unclear)	HBB:c.*91_*103delGCATCTGGATTCT	deletions
-chr11	5246857	5246869	HbVar.964	Codons 134-137 [-(G)TGGCTGGTGT(G) and +(G)GCAG(G)]; Dominant inclusion body beta-thal trait	HBB:c.404_413delinsGCAG	insertions,deletions
-chr11	5246858	5246868	HbVar.964	Codons 134-137 [-(G)TGGCTGGTGT(G) and +(G)GCAG(G)]; Dominant inclusion body beta-thal trait	HBB:c.404_413delinsGCAG	insertions,deletions
-chr11	5246864	5246875	HbVar.963	Codons 128/129 (-4, -GCTG; +5, +CCACA) Codons 132-135 (-11, -AAAGTGGTGGC) Dominant inclusion body beta-thal trait	HBB:c.[385_388delinsCCACA;397_407delAAAGTGGTGGC]	insertions,deletions
-chr11	5246875	5246892	HbVar.958	Codons 126-131 (Val-Gln-Ala-Ala-Thr-Gln) (-17 bp); GTG CAG GCT GCC TAT CAG->G beta0	HBB:c.380_396delTGCAGGCTGCCTATCAG	deletions
-chr11	5246934	5246946	HbVar.946	Codons 108/109/110/111/112 (-12 bp); beta0	HBB:c.326_337delACGTGCTGGTCT	deletions
-chr11	5246941	5246953	HbVar.2713	Codon 106 (-CTGGGCAACGTG)	HBB:c.319_330delCTGGGCAACGTG	deletions
 chr11	5247393	5248786	HbVar.980	1,393 bp deletion beta0	NG_000007.3:g.70060_71452del1393	deletions
 chr11	5247681	5249285	HbVar.981	1,605 bp deletion the Croatian deletion beta0	NG_000007.3:g.69561_71164del1604	deletions
-chr11	5247793	5247805	HbVar.2706	IVS2-2 (-TGAGTCTATGGG)	HBB:c.315+2_315+13delTGAGTCTATGGG	deletions
 chr11	5247924	5343647	HbVar.1052	Anglo-Saxon (epsilon-gamma-delta-beta)0-Thal	NC_000011.8:g.5204501_5300223del	deletions
-chr11	5248026	5248051	HbVar.974	25 bp deletion beta0	HBB:c.93-22_95del	deletions
-chr11	5248029	5248046	HbVar.834	IVS-I, 3' end; -17 bp beta0	HBB:c.93-17_93-1delTATTTTCCCACCCTTAG	deletions
-chr11	5248132	5248176	HbVar.975	44 bp deletion beta0	HBB:c.76_92+27del	deletions
 chr11	5248134	5248427	HbVar.977	290 bp deletion beta0	HBB:c.-176_92+25del	deletions
-chr11	5248206	5248232	HbVar.2870	HBB:c.20_45del26	HBB:c.20_45del	deletions
 chr11	5248220	5248325	HbVar.976	105 bp deletion beta0	HBB:c.-74_31del	deletions
 chr11	5248220	5255637	HbVar.2890	NG_000007.3:g.(63154-63209)-(70570-70625)del7417	NG_000007.3:g.(63154_63209)_(70570_70625)del7417	deletions
 chr11	5248223	5248755	HbVar.978	532 bp deletion beta0	HBB:c.-504_28del	deletions
-chr11	5248235	5248246	HbVar.782	Codons 2/3/4 (-9 bp; +31 bp); beta0	HBB:c.7_15delinsCCTGAGGTGAAGTCTGCCTGAGGAGAAGTCT	insertions,deletions
-chr11	5248681	5248729	HbVar.2738	Afghan deletion beta0 (909 bp del)	HBB:c.-528_251del	deletions
 chr11	5250661	5350493	HbVar.1056	Dutch (epsilon-gamma-delta-beta)0-Thal	NC_000011.8:g.5207238_5307069del	deletions
 chr11	5254402	5261609	HbVar.1005	-7.2 kb; the Corfu deletion delta0	NG_000007.3:g.57237_64443del7207	deletions
 chr11	5254797	5256837	HbVar.2875	Kabylian deletion-insertion	U01317.1:g.62009_64049del2040insATAAG	deletions
 chr11	5256768	5256893	HbVar.2879	-125 bp deletion	U01317:g.61953_62077del125	deletions
-chr11	5271188	5271201	HbVar.1020	The 13 bp deletion (-CAATAGCCTTGAC at -114 through -102); HPFH	HBG1:c.-167_-155delCAATAGCCTTGAC	deletions
 chr11	5300802	5340585	HbVar.1058	Hispanic (epsilon-gamma-delta-beta)0-Thal	NC_000011.8:g.5257379_5297161del	deletions
 chr16	60001	172801	HbVar.1254	Ti~	NC_000016.8:g.1_112800del	deletions
 chr16	96620	176318	HbVar.3189	79.7 Kb deletion	NC_000016.9:g.96621_176318del	deletions
@@ -68,19 +53,13 @@ chr16	205499	234800	HbVar.1091	- -(BRIT); deletion of ~26 kb involving both alph
 chr16	208099	229000	HbVar.1089	- -(MA); deletion of ~22 kb involving both alpha genes alpha-Thal-1	NG_000006.1:g.18964_39864del20901	deletions
 chr16	208599	232200	HbVar.1090	- -(SA); deletion of 22.8-23.7 kb involving both alpha-globin genes; alpha-Thal-1	NG_000006.1:g.19464_43064del23601	deletions
 chr16	213799	230200	HbVar.1087	- -(MED-I); deletion of ~17.5 kb including both alpha-globin genes alpha-Thal-1	NG_000006.1:g.24664_41064del16401	deletions
-chr16	215395	234700	HbVar.1086	- -(SEA)_From_HK; deletion of ~20 kb including both alpha-globin genes alpha-Thal-1	NG_000006.1:g.26264_45564del19301	deletions
-chr16   215399  234700  HbVar.1086  - -(SEA); deletion of ~20 kb including both alpha-globin genes alpha-Thal-1 NG_000006.1:g.26264_45564del19301   deletions
-chr16	217819	223066	HbVar.1080	5.3 kb deletion; alpha-Thal-2	NG_000006.1:g.28684_33930del5246	deletions
+chr16	215399	234700	HbVar.1086	- -(SEA); deletion of ~20 kb including both alpha-globin genes alpha-Thal-1	NG_000006.1:g.26264_45564del19301	deletions
+chr16	217818	223065	HbVar.1080	5.3 kb deletion; alpha-Thal-2	NG_000006.1:g.28684_33930del5246	deletions
 chr16	218499	231600	HbVar.1085	- -(CANT); a deletion of 14.0-15.4 kb removing both alpha-globin genes alpha-Thal-1	NG_000006.1:g.29364_42464del13101	deletions
+chr16	219816	224074	HbVar.1079	-α4.2(NC_000016.9:g.219817_(223755_224074)del)	NC_000016.9:g.219817_224074del4257	deletion
 chr16	219999	230550	HbVar.1084	- -(SPAN); deletion of 10.5-12.0 kb including both alpha-globin genes alpha-Thal-1	NG_000006.1:g.30864_41414del10551	deletions
 chr16	221999	231400	HbVar.1083	- -(GEO); 8.5 kb deletion including the alpha2- and alpha1- globin genes alpha-Thal-1	NG_000006.1:g.32864_42264del9401	deletions
-chr16	223169	223189	HbVar.3180	alpha2 47(-C)	HBA2:c.142_161delGACCTGAGCCACGGCTCTGC	deletions
 chr16	223299	227103	HbVar.1076	3.7 kb (type I) deletion alpha-2	NG_000006.1:g.34164_37967del3804	deletions
 chr16	223440	223643	HbVar.2909	203 bp deletion (HBA2 exon 3)	NG_000006.1:g.34305_34507del203	deletions
-chr16	223509	223521	HbVar.937	Hb Lleida	HBA2:c.[339C>G;340_351delCTCCCCGCCGAG]	substitution,deletions
-chr16	223518	223529	HbVar.2867	HBA2:c.349_359delGAGTTCACCCC	HBA2:c.349_359delGAGTTCACCCC	deletions
-chr16	223672	223688	HbVar.1073	3'UTR (-16 bp) alpha2 gene; alpha-Thal-2	HBA2:c.*74_*89delCCTTCCTGGTCTTTGA	deletions
 chr16	225799	228500	HbVar.1074	2.7 kb deletion involving the alpha1 gene alpha-Thal-2	NG_000006.1:g.36664_39364del2701	deletions
-chr16	226599	230100	HbVar.1075	3.5 kb deletion involving the alpha1 gene alpha-Thal-2	NG_000006.1:g.37464_40964del3501	deletions
-chr16	226986	226999	HbVar.1068	Deletion of 13 nts from codons 51-55 of the alpha1 gene; alpha-Thal-2	HBA1:c.155_167delGCTCTGCCCAGGT	deletions
-chr16	227313	227326	HbVar.2725	&#945;1 Codon 124-128 (-13bp)	HBA1:c.333_345delCGCCCACCTCCCC	deletions
+chr16	226598	230099	HbVar.1075	3.5 kb deletion involving the alpha1 gene alpha-Thal-2	NG_000006.1:g.37464_40964del3501	deletions

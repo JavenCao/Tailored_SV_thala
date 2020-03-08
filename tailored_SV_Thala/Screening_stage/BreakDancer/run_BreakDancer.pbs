@@ -49,5 +49,19 @@ do
 done
 
 
-# filtering steps Feb 27, 2020
+# filtering steps 8th March, 2020
+cd $BDwkd/BD_pre
+mkdir Raw_file
+mv ./* ./Raw_file
+mkdir QCed_Report
+awk 'BEGIN{print "chr\tpos1\tpos2\tsize\tDeletion_with_support_Reads\tsample_name"}'  > ./QCed_Report/BreakDancer_Deletion.pre
+cd $BDwkd/BD_pre/Raw_file
+for i in all_samples
+do
+    awk  -v Sname=$i '{if($7=="DEL" && $10 >= 4 && $8 >= 100){print $1"\t"$2"\t"$5"\t"$8"\t"$10"\t"Sname}}' BD_"$i".pre >> ../QCed_Report/BreakDancer_Deletion.pre
+done
 
+cd $BDwkd/BD_pre/QCed_Report
+sort -k1,1 -k2,2n BreakDancer_Deletion.pre > mid_sorted_BreakDancer_Deletion.pre
+
+bedtools closest -a mid_sorted_BreakDancer_Deletion.pre -b /paedwy/disk1/yjcao/datacenter/FinalSimu/100bp/SV/Screening_stage/Pindel/sorted.known_SV_Deletion_100bp.bed -d | awk 'BEGIN{FS=OFS="\t"}{if($14=="0"){print}}' > BD_Causal.mid.bed

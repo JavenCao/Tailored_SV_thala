@@ -24,6 +24,8 @@ In the first **screening stage**, all the samples will be pooled and tested toge
 
 In the next **fine profiling stage**, depth change profiles will be updated within each group before the interpretation of the mutation.
 
+bedtools should be in your environments
+
 ## Step-by-step description for thalassaemia SV detection
 
 This working example help users to generate structured folder layers and PBS scripts for job submission. However, these PBS files can also be run by bash(sh) on servers that are PBS-free.

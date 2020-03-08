@@ -13,7 +13,7 @@ Raw_Bam_file_folder=/home/data/thala_project/Bam_file
 BREAKDANCER=/home/software/breakdancer/BD_bins/bin/breakdancer-max
 BDBAM2CFG="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
 BD_CHECK_CON_PY="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/Modify_BD_config.py
-KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/sorted.known_SV_Deletion_30bp.bed
+KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/sorted.known_SV_Deletion_100bp.bed
 
 # generate BD configure file
 mkdir $BDwkd/config
@@ -63,11 +63,18 @@ do
 done
 
 cd $BDwkd/BD_pre/QCed_Report
+
 sort -k1,1 -k2,2n BreakDancer_Deletion.pre > mid_sorted_BreakDancer_Deletion.pre
 
-bedtools closest -a mid_sorted_BreakDancer_Deletion.pre -b $KNOWN_SV_FILE
+bedtools closest -a mid_sorted_BreakDancer_Deletion.pre -b $KNOWN_SV_FILE -d | awk 'BEGIN{FS=OFS="\t"}{if($14=="0"){print}}' > BD_Causal.mid.bed
 
+python "$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/Find_minimum_range_BreakDancer.py --bed BD_Causal.mid.bed -minbed BD_Causal_mid.pre
 
+sort -k6 BD_Causal_mid.pre > BD_Causal.pre
 
+rm -rf BD_Causal.mid.bed mid_sorted_BreakDancer_Deletion.pre BD_Causal_mid.pre
 
-/paedwy/disk1/yjcao/datacenter/FinalSimu/100bp/SV/Screening_stage/Pindel/sorted.known_SV_Deletion_100bp.bed -d | awk 'BEGIN{FS=OFS="\t"}{if($14=="0"){print}}' > BD_Causal.mid.bed
+# groupping
+#awk '{if($3-$2 > 10000) {print $6}}' Causal_Pindel_Deletion.pre > Pindel.GroupI.10K.del.ind.list
+#awk '{if($3-$2 <= 10000) {print $6}}' Causal_Pindel_Deletion.pre > Pindel.GroupII.10K.del.ind.list
+

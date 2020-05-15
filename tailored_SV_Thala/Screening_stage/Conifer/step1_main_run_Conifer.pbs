@@ -52,7 +52,7 @@ source deactivate
 cd $cnvf
 mkdir QCed_Report
 awk 'BEGIN{print "chr\tpos1\tpos2\tsize\tDeletion_with_support_Reads\tsample_name"}'  > ./QCed_Report/Conifer_Deletion.pre
-awk '{if($4-$3>100  && $5=="del"){print $2"\t"$3"\t"$4"\t"$4-$3"\tNA\t"$1}}' CNVcalls.txt >> ./QCed_Report/Conifer_Deletion.pre
+awk '{if($4-$3>500  && $5=="del"){print $2"\t"$3"\t"$4"\t"$4-$3"\tNA\t"$1}}' CNVcalls.txt >> ./QCed_Report/Conifer_Deletion.pre
 cd ./QCed_Report
 sort -k1,1 -k2,2n Conifer_Deletion.pre > mid_sorted_Conifer_Deletion.pre
 bedtools closest -a mid_sorted_Conifer_Deletion.pre -b $KNOWN_SV_FILE -d > Conifer_Deletion_Causal.mid.bed

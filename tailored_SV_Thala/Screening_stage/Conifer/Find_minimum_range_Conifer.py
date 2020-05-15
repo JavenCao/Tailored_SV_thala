@@ -47,14 +47,14 @@ def Find_minimum_range_fun(bedfile, minbedfile):
             line = All_lines[out_put_line_index]
             div = line.rstrip("\n").split("\t")
 #            fout.write(line)
-            if abs(int(div[3]) - (int(div[8]) - int(div[7]))) < 2000:
+            if abs(int(div[3]) - (int(div[8]) - int(div[7]))) < 2000 and (int(div[8]) - int(div[7]) > 1000:
                 fout.write(line)
     return 1
 
 
 if __name__ == "__main__":
-    bedfile = args.bedfile
-    minbedfile = args.minbedfile
+    bedfile=args.bedfile
+    minbedfile=args.minbedfile
     Find_minimum_range_fun(bedfile, minbedfile)
 else:
     pass

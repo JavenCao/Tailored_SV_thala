@@ -119,23 +119,24 @@ Here, we give an example showing the general process, users please take 5 minite
 
 **(i) merge BreakDancer and Pindel calling, and define sample list with deletions covering both the HBA2 and HBA1 regions**
 
-  cd /home/data/Thala/SV/FileProfiling_stage/Conifer
-  qsub Fine_profiling_list.pbs
+    cd /home/data/Thala/SV/FileProfiling_stage/Conifer
+    qsub Fine_profiling_list.pbs
 
 **(ii) Manually check the carrier counts for each large deletions in the following files**
 
-  Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre
+    Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre
 
 Let's say, if you find 20(>8 is OK) --SEA carriers, then you can continue.
 
-  mkdir RPKM(/home/data/Thala/SV/FineProfiling_Stage/Conifer/RPKM)
+    mkdir RPKM(/home/data/Thala/SV/FineProfiling_Stage/Conifer/RPKM)
 
 Then,
+
 **(iii) Copy the 20 --SEA carriers' RPKM files from the Screening_stage/Conifer/RPKM folder to the RPKM folder you just created**
 
 **(iv) Run the Conifer scripts and check the resutls**
 
-  qsub FP_step1_main_run_Conifer.pbs
+    qsub FP_step1_main_run_Conifer.pbs
 
 ## License
 

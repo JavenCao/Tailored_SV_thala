@@ -1,8 +1,8 @@
 # tailored_SV_thala
 
-This repository describes the general workflow for thalassaemia structural variation(SV) detection. Common thalassaemia SV includes deletions and du(tri)plications, such as South East Type deletion(--SEA), alpha-3.7kb deletion(-a3.7) and alpha-4.2kb deletion(-a4.2), depending on the local epidemiology.
+This repository describes the general workflow for thalassaemia structural variation(SV) detection. Common thalassaemia SV includes deletions and du(tri)plications, such as South East Type deletion(--SEA), alpha-3.7kb deletion(-a3.7) and alpha-4.2kb deletion(-a4.2), depending on the local epidemiology. Also, compound rearrangments, such as --SEA/a3.7 can happen and cause Hb H disease.
 
-Here, we want to emphasize that the input alignment BAM files should **not** go through rescue process in point mutation/Indel detection paradigm. If you start with a large BAM file from whole genome sequencing, you are suggested to extract BAM records within the hemoglobin regions to accelerate the calling process, and perhapes the command likes:
+Here, we want to emphasize that the input alignment BAM files should **not** go through re-align process in point mutation/Indel detection paradigm. If you start with a large BAM file from whole genome sequencing, you are suggested to extract BAM records within the hemoglobin regions to accelerate the calling process, and perhapes the command likes:
 
     samtools view -h -L Thalassaemia_hg19_genome.bed -b -o output.bam input.bam
 
@@ -18,11 +18,11 @@ Also, make sure that your BAM files are organised by the following structure. In
 
 To detect thalassaemia SVs, the selected software [BreakDancer](https://github.com/genome/breakdancer), [Pindel](https://github.com/genome/pindel) and [Conifer](http://conifer.sourceforge.net/) were jointly used with tailored parameters. More details about the parameter settings and considerations can be found in the [original paper](blank).
 
-Besides, a two-stage strategy is used to get a confident SV prediction:
+Besides, a two-stage strategy is used to further confirm and detect the compound CNV status in HBA genes:
 
-In the first **screening stage**, all the samples will be pooled and tested together. Then, samples with large deletions(>10k) will be labeled as Group I, while others are labeled as Group II.
+In the first **screening stage**, all the samples will be tested together by the three software. Then, samples with deletions covering both the HBA2 and HBA1 genes will be labeled as Group I, while others are labeled as Group II.
 
-In the next **fine profiling stage**, depth change profiles will be updated within each group before the interpretation of the mutation.
+In the next **fine profiling stage**, CNV status will be tested by Conifer within each group before the interpretation of the mutation.
 
 bedtools should be in your environments
 

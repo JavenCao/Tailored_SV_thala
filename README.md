@@ -86,12 +86,9 @@ After BreakDancer and Pindel, we run Conifer: first calculate RPKM, then run the
       qsub RPKM_cal.pbs
       qsub Conifer_Run.pbs
 
+Here, for the screening purpose, we only focus on known causal SVs. Users could writing their own scripts to filter the resutls.
 
-
-
-
-
-
+Results are stored in the following folders for the Pindel, BreakDancer and Conifer:
 
     | -- /home/data/Thala/SV
     |   | -- Tailored_SV_thala
@@ -100,34 +97,15 @@ After BreakDancer and Pindel, we run Conifer: first calculate RPKM, then run the
     |   |   | all the supproting scripts(Don't run or change them, just leave them there)
     |   |   | ... ...
     |   |   | ... ...
-    |   |   | ... ...
     |   | -- Screening_stage
-    |   |   | -- Conifer
-    |   |   |    | -- RPKM_cal.pbs
-    |   |   |    | -- Conifer_Run.pbs
-    |   |   |    | -- RPKM
     |   |   | -- BreakDancer
-    |   |   |    | -- BreakDancer_Run.pbs
+    |   |   |    | -- BD_pre/QCed_Report/BD_Causal.pre
     |   |   | -- Pindel
     |   |   |    | -- P_pre
-    |   |   |    |    | -- chr16/QCed_Report/Causal_Pindel_Deletion.pre
-    |   |   |    |    | -- chr11/QCed_Report/Causal_Pindel_Deletion.pre
-
-Here, for the screening purpose, we only focus on known causal SVs. Users could writing their own scripts to filter the resutls.
-
-Raw results are stored in the following folders for the Pindel, BreakDancer and Conifer:
-
-    | -- /home/data/Thala/SV
-    |   | -- Tailored_SV_thala
-    |   |   | -- all the supproting scripts(Don't run or change them, just leave them there)
-    |   |   | ... ...
-    |   |   | -- Screening_stage
-    |   |   |   | -- Conifer
-    |   |   |   |    | -- CNVcalls.txt
-    |   |   |   | -- BreakDancer
-    |   |   |   |    | -- BD_pre/(All files)
-    |   |   |   | -- Pindel
-    |   |   |   |    | -- P_Pre/(All files)
+    |   |   |    |   | - chr16/QCed_Report/Causal_Pindel_Deletion.pre
+    |   |   |    |   | - chr11/QCed_Report/Causal_Pindel_Deletion.pre
+    |   |   | -- Conifer
+    |   |   |    | -- QCed_Report
 
 
 ## License

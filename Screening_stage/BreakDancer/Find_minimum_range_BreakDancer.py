@@ -1,4 +1,4 @@
-from Find_minimum_range import *
+from Find_minimum_range_BreakDancer import *
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-bed", "--bedfile")

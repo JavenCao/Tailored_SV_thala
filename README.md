@@ -139,7 +139,9 @@ Then,
     cd /home/data/Thala/SV/FileProfiling_stage/Conifer
     qsub FP_step1_main_run_Conifer.pbs
 
-**The results file are in /home/data/Thala/SV/FileProfiling_stage/Conifer/QCed_Report/Conifer_Deletion_Causal.pre
+**The results file are in
+
+/home/data/Thala/SV/FileProfiling_stage/Conifer/QCed_Report/Conifer_Deletion_Causal.pre
                                                                                      /Alpha_region_Conifer_Duplication.pre**
 
 ## License

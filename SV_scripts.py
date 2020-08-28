@@ -47,7 +47,7 @@ if __name__ == "__main__":
     FineProfiling_stage_F = SV_folder.rstrip('/') + '/' + "FineProfiling_stage"
     each_software_F = ['Conifer']
 
-    Create_Folders(Screening_stage_F, each_software_F)
+    Create_Folders(FineProfiling_stage_F, each_software_F)
 
 
 else:

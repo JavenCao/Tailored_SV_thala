@@ -89,7 +89,7 @@ After BreakDancer and Pindel, we run Conifer: first calculate RPKM, then run the
 
 Here, for the screening purpose, we only focus on known causal SVs. Users could writing their own scripts to filter the resutls.
 
-Results are stored in the following folders for the Pindel, BreakDancer and Conifer:
+**Results for screening_stage** are stored in the following folders for the Pindel, BreakDancer and Conifer:
 
     | -- /home/data/Thala/SV
     |   | -- Tailored_SV_thala

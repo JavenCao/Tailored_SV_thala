@@ -112,6 +112,7 @@ Results are stored in the following folders for the Pindel, BreakDancer and Coni
 
 Since read-depth method is a comparative method, it is sensitive to sample size. In practise, at least 8 samples from the same bath and carrying the same large deletions are exptected in fine-profiling stage.
 
+For example, when you detected 20 --SEA deletion carriers, then you can let these 20 --SEA carriers to go through the fine-profiling stage to further determine their poteintial compound heterozygous status, such as --SEA/-a3.7 in Hb H disease. Otherwise, testing in fine-profiling stage maybe biased, in which more samples are needed.
 
 Here, we give an example showing the process, users please take 5 minites to learn and then deside whether applies to your situations.
 

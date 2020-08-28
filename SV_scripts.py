@@ -52,13 +52,14 @@ if __name__ == "__main__":
     Conifer_Run_Modelfile = FP_Conider_scripts_folder + \
         '/FP_step1_main_run_Conifer.pbs'
     SV_folder = Path_dict.get("SV_folder")
-    FineProfiling_stage_F = SV_folder.rstrip('/') + '/' + "FineProfiling_stage"
+    FineProfiling_stage_F_conifer = SV_folder.rstrip(
+        '/') + '/' + "FineProfiling_stage/Conifer"
     ModifyAndCreate_v2(Conifer_Run_Modelfile, Path_dict,
-                       FineProfiling_stage_F, SampleList, "Conifer_Run")
+                       FineProfiling_stage_F_conifer, SampleList, "Conifer_Run")
 
     Fine_profiling_list_modelfile = FP_Conider_scripts_folder + "/Fine_profiling_list.pbs"
     ModifyAndCreate_v2(Fine_profiling_list_modelfile, Path_dict,
-                       FineProfiling_stage_F, SampleList, "Fine_profiling_list")
+                       FineProfiling_stage_F_conifer, SampleList, "Fine_profiling_list")
 
 else:
     pass

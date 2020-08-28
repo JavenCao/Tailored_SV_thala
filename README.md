@@ -78,7 +78,10 @@ After Step4, you will have the follwing structure:
 BreakDancer should go before Pindel, since results from BreakDancer are used as one of the input for Pindel
 
 After BreakDancer and Pindel, we run Conifer: first calculate RPKM, then run the Conifer main process.
-
+      cd /home/data/Thala/SV/Screening_stage/BreakDancer
+      qsub BreakDancer_Run.pbs
+      cd /home/data/Thala/SV/Screening_stage/Pindel
+      qsub Pindel_Run.pbs
       cd /home/data/Thala/SV/Screening_stage/Conifer
       qsub RPKM_cal.pbs
       qsub Conifer_Run.pbs

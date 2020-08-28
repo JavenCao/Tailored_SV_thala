@@ -39,12 +39,12 @@ This working example help users to generate structured folder layers and PBS scr
 
 You will need the [Anaconda](https://docs.conda.io/en/latest/) for Python package manager for Conifer:
 
-    cd ./Tailored_SV_thala/tailored_SV_Thala/
+    cd ./Tailored_SV_thala/
     conda env create --file environment.yml
 
-* Step3: set parameters for SV_scripts.py by running the follwing commands:
+* Step3: set parameters for SV_scripts.py by running the follwing commands, and the parameters are just self-explanatory.
 
-      cd ./Tailored_SV_thala/tailored_SV_Thala/
+      cd ./Tailored_SV_thala/
       vi SV_configure_file.txt
 
 * Step4: generate the structured folder layers and PBS scripts by running the following commands:
@@ -55,42 +55,60 @@ After Step4, you will have the follwing structure:
 
     | -- /home/data/Thala/SV
     |   | -- Tailored_SV_thala
-    |   |   | -- all the supproting scripts(Don't run or change them, just leave them there)
     |   |   | ... ...
-    |   |   | -- Screening_stage
-    |   |   |   | -- Conifer
-    |   |   |   |    | -- RPKM_cal.pbs
-    |   |   |   |    | -- Conifer_Run.pbs
-    |   |   |   |    | -- RPKM
-    |   |   |   | -- BreakDancer
-    |   |   |   |    | -- BreakDancer_Run.pbs
-    |   |   |   | -- Pindel
-    |   |   |   |    | -- Pindel_Run.pbs
+    |   |   | ... ...
+    |   |   | all the supproting scripts(Don't run or change them, just leave them there)
+    |   |   | ... ...
+    |   |   | ... ...
+    |   | -- Screening_stage
+    |   |   | -- Conifer
+    |   |   |    | -- RPKM_cal.pbs
+    |   |   |    | -- Conifer_Run.pbs
+    |   |   |    | -- RPKM
+    |   |   | -- BreakDancer
+    |   |   |    | -- BreakDancer_Run.pbs
+    |   |   | -- Pindel
+    |   |   |    | -- Pindel_Run.pbs
+    |   | -- FineProfiling_stage
+    |   |   | -- Conifer
 
-* Step5: go to the Screening_stage folder, and run these scripts by qsub(PBS platform) or bash(PBS-free platform) for Conifer, BreakDancer, Pindel.
 
-Conifer: first calculate RPKM, then call the CNVs.
-
-      cd ./Tailored_SV_thala/tailored_SV_Thala/Conifer
-      qsub Conifer_Run.pbs
+* Step5: go to the Screening_stage folder, and run these scripts by qsub(PBS platform) or bash(PBS-free platform) for  BreakDancer, Pindel and Conifer.
 
 BreakDancer should go before Pindel, since results from BreakDancer are used as one of the input for Pindel
 
+After BreakDancer and Pindel, we run Conifer: first calculate RPKM, then run the Conifer main process.
+
+      cd /home/data/Thala/SV/Screening_stage/Conifer
+      qsub RPKM_cal.pbs
+      qsub Conifer_Run.pbs
+
+
+
+
+
+
+
+
     | -- /home/data/Thala/SV
     |   | -- Tailored_SV_thala
-    |   |   | -- all the supproting scripts(Don't run or change them, just leave them there)
     |   |   | ... ...
-    |   |   | -- Screening_stage
-    |   |   |   | -- Conifer
-    |   |   |   |    | -- RPKM_cal.pbs
-    |   |   |   |    | -- Conifer_Run.pbs
-    |   |   |   |    | -- RPKM
-    |   |   |   | -- BreakDancer
-    |   |   |   |    | -- BreakDancer_Run.pbs
-    |   |   |   | -- Pindel
-    |   |   |   |    | -- P_pre
-    |   |   |   |    |    | -- chr16/QCed_Report/Causal_Pindel_Deletion.pre
-    |   |   |   |    |    | -- chr11/QCed_Report/Causal_Pindel_Deletion.pre
+    |   |   | ... ...
+    |   |   | all the supproting scripts(Don't run or change them, just leave them there)
+    |   |   | ... ...
+    |   |   | ... ...
+    |   |   | ... ...
+    |   | -- Screening_stage
+    |   |   | -- Conifer
+    |   |   |    | -- RPKM_cal.pbs
+    |   |   |    | -- Conifer_Run.pbs
+    |   |   |    | -- RPKM
+    |   |   | -- BreakDancer
+    |   |   |    | -- BreakDancer_Run.pbs
+    |   |   | -- Pindel
+    |   |   |    | -- P_pre
+    |   |   |    |    | -- chr16/QCed_Report/Causal_Pindel_Deletion.pre
+    |   |   |    |    | -- chr11/QCed_Report/Causal_Pindel_Deletion.pre
 
 Here, for the screening purpose, we only focus on known causal SVs. Users could writing their own scripts to filter the resutls.
 

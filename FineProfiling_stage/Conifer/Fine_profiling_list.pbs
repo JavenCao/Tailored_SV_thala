@@ -14,3 +14,19 @@ PROBE_FILE="$SV_folder"/Tailored_SV_thala/FineProfiling_stage/Conifer/hg19_probe
 SAMTOOLS=/home/yjcao/software/samtools-1.4/samtools
 CONIFER=/home/software/Conifer/conifer.py
 KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/FineProfiling_stage/Conifer/sorted.known_SV_Deletion_100bp.bed
+
+
+cd $cnvf
+
+P_PRE=SV_folder + "/Screening_stage/Pindel/P_pre/chr16/QCed_Report/Causal_Pindel_Deletion.pre"
+#chr16	225799	228500	2701	69	simu_1531	HbVar.1074	2.7 kb deletion involving the alpha1 gene alpha-Thal-2
+BD_PRE=SV_folder + "/Screening_stage/BreakDancer/BD_pre/QCed_Report/BD_Causal.pre"
+#chr	pos1	pos2	range	Deletion_with_support_Reads	Sample_Name	Known_chr	Known_pos1	Known_pos2	HbVar	Common_name	HGVS_name	Type	Overlapping(0=completely)
+
+cat $P_PRE $BD_PRE > Raw_P_BD_merge.pre
+awk '{if(/Deletion_with_support_Reads/){}else{print}}' Raw_P_BD_merge.pre | sort -k6 > sorted_Raw_P_BD_merge.pre
+
+python Remove_duplicated_causal.py -bed sorted_Raw_P_BD_merge.pre -uniqbed uniq_Raw_P_BD_merge.pre
+
+# fine profiling list
+sort -k5 uniq_Raw_P_BD_merge.pre | awk '{if($3 < 222500 && $4 > 228000){print}}'> Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre

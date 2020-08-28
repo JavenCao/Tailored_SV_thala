@@ -82,5 +82,7 @@ for i in all_samples
 done
 
 # find exact mathed SVs
-# find time to implement in python
+cd $Pwkd/P_pre/chr16/QCed_Report
+python "$SV_folder"/Tailored_SV_thala/Screening_stage/Pindel/matching_breakpoint.py -knownbed $KNOWN_SV_FILE -bed Pindel_Deletion.pre -outbed Causal_Pindel_Deletion.pre
+cd $Pwkd/P_pre/chr11/QCed_Report
 python "$SV_folder"/Tailored_SV_thala/Screening_stage/Pindel/matching_breakpoint.py -knownbed $KNOWN_SV_FILE -bed Pindel_Deletion.pre -outbed Causal_Pindel_Deletion.pre

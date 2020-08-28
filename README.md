@@ -106,6 +106,21 @@ Results are stored in the following folders for the Pindel, BreakDancer and Coni
     |   |   |    |   | - chr11/QCed_Report/Causal_Pindel_Deletion.pre
     |   |   | -- Conifer
     |   |   |    | -- QCed_Report/Conifer_Deletion_Causal.pre
+                                 /Alpha_region_Conifer_Duplication.pre
+
+* Step6: Fine-profiling stage(if necessary)
+
+Since read-depth method is a comparative method, it is sensitive to sample size. In practise, at least 8 samples from the same bath and carrying the same large deletions are exptected in fine-profiling stage.
+
+
+Here, we give an example showing the process, users please take 5 minites to learn and then deside whether applies to your situations.
+
+**(i) merge BreakDancer and Pindel callings**
+**(ii) Define sample list with deletions covering both the HBA2 and HBA1 regions**
+**(iii) Manually check the carrier counts for each deletions**
+**(iv) Copy their RPKM files from the Screening_stage/Conifer/RPKM folders**
+**(v) Run the Conifer scripts and check the resutls**
+
 
 
 ## License

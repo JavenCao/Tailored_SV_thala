@@ -60,7 +60,7 @@ sort -k6 Conifer_Deletion_Causal.pre.mid > Conifer_Deletion_Causal.pre
 
 rm -rf Conifer_Deletion_Causal.pre.mid Conifer_Deletion_Causal.mid.bed mid_sorted_Conifer_Deletion.pre
 
-python "$SV_folder"/Tailored_SV_thala/Screening_stage/Conifer/NotInList.py -list ../list.Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre -bed Conifer_Deletion_Causal.pre -out Report3_less10K.CNV.deletion.pre
+#python "$SV_folder"/Tailored_SV_thala/Screening_stage/Conifer/NotInList.py -list ../list.Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre -bed Conifer_Deletion_Causal.pre -out Report3_less10K.CNV.deletion.pre
 
 
 
@@ -70,7 +70,7 @@ awk 'BEGIN{print "chr\tpos1\tpos2\tsize\tDeletion_with_support_Reads\tsample_nam
 awk '{if($4-$3>2500  && $5=="dup"){print $2"\t"$3"\t"$4"\t"$4-$3"\tNA\t"$1}}' 0.3_CNVcalls.txt >> Conifer_Duplication.pre
 awk '{if($2>219000 && $3<228000){print}}' Conifer_Duplication.pre  | sort -k6 > Alpha_region_Conifer_Duplication.pre
 
-python NotInList.py -list list.Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre -bed Alpha_region_Conifer_Duplication.pre -out Report3_less10K.CNV.Duplication.pre
+#python NotInList.py -list list.Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre -bed Alpha_region_Conifer_Duplication.pre -out Report3_less10K.CNV.Duplication.pre
 
 #less -S Alpha_region_Conifer_Duplication.pre
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 #PBS -N BreakDancer
 #PBS -l mem=10g,nodes=1:ppn=2,walltime=18:00:00
-#PBS -q paedwy
-#PBS -m abe -M boxyjcao@connect.hku.hk
+#PBS -q queue_name_here
+#PBS -m abe -M youremail_address_here
 #PBS -o BreakDancer.out
 #PBS -e BreakDancer.err
 #PBS -V
@@ -11,9 +11,9 @@ SV_folder=/home/data/thala_project/SV
 BDwkd="$SV_folder"/Screening_stage/BreakDancer
 Raw_Bam_file_folder=/home/data/thala_project/Bam_file
 BREAKDANCER=/home/software/breakdancer/BD_bins/bin/breakdancer-max
-BDBAM2CFG="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
-BD_CHECK_CON_PY="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/Modify_BD_config.py
-KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/sorted.known_SV_Deletion_100bp.bed
+BDBAM2CFG="$SV_folder"/Tailored_SV_thala/Screening_stage/BreakDancer/perl/bam2cfg.pl
+BD_CHECK_CON_PY="$SV_folder"/Tailored_SV_thala/Screening_stage/BreakDancer/Modify_BD_config.py
+KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/Screening_stage/BreakDancer/sorted.known_SV_Deletion_100bp.bed
 
 # generate BD configure file
 mkdir $BDwkd/config
@@ -68,7 +68,7 @@ sort -k1,1 -k2,2n BreakDancer_Deletion.pre > mid_sorted_BreakDancer_Deletion.pre
 
 bedtools closest -a mid_sorted_BreakDancer_Deletion.pre -b $KNOWN_SV_FILE -d | awk 'BEGIN{FS=OFS="\t"}{if($14=="0"){print}}' > BD_Causal.mid.bed
 
-python "$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/BreakDancer/Find_minimum_range_BreakDancer.py --bed BD_Causal.mid.bed -minbed BD_Causal_mid.pre
+python "$SV_folder"/Tailored_SV_thala/Screening_stage/BreakDancer/Find_minimum_range_BreakDancer.py --bed BD_Causal.mid.bed -minbed BD_Causal_mid.pre
 
 sort -k6 BD_Causal_mid.pre > BD_Causal.pre
 

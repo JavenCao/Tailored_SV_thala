@@ -43,6 +43,12 @@ if __name__ == "__main__":
     ModifyAndCreate_v2(Pindel_Modefile, Path_dict,
                        Pindel_Folder, SampleList, "Pindel_Run")
 
+# 2020new - fine profiling stage
+    FineProfiling_stage_F = SV_folder.rstrip('/') + '/' + "FineProfiling_stage"
+    each_software_F = ['Conifer']
+
+    Create_Folders(Screening_stage_F, each_software_F)
+
 
 else:
     pass

@@ -1,14 +1,14 @@
 #!/bin/bash
 #PBS -N pindel
 #PBS -l mem=10g,nodes=1:ppn=2,walltime=18:00:00
-#PBS -q paedwy
-#PBS -m abe -M boxyjcao@connect.hku.hk
+#PBS -q queue_name_here
+#PBS -m abe -M youremail_address_here
 #PBS -o pindel.out
 #PBS -e pindel.err
 #PBS -V
 
 SV_folder=/home/data/thala_project/SV
-KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/Pindel/sorted.known_SV_Deletion_100bp.bed
+KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/Screening_stage/Pindel/sorted.known_SV_Deletion_100bp.bed
 Raw_Bam_file_folder=/home/data/thala_project/Bam_file
 
 #-------1.including folderss
@@ -19,7 +19,7 @@ BDwkd="$SV_folder"/Screening_stage/BreakDancer
 # pindel
 PINDEL=/home/software/pindel/pindel
 # pindel pindel2vcf
-PINDEL2vcf="$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/Pindel/pindel2vcf
+PINDEL2vcf="$SV_folder"/Tailored_SV_thala/Screening_stage/Pindel/pindel2vcf
 
 # run pindel to call sv
 REFSEQ=/home/data/reference/GATKbundle/hg19/ucsc.hg19.fasta
@@ -83,4 +83,4 @@ done
 
 # find exact mathed SVs
 # find time to implement in python
-python "$SV_folder"/Tailored_SV_thala/tailored_SV_Thala/Screening_stage/Pindel/matching_breakpoint.py -knownbed $KNOWN_SV_FILE -bed Pindel_Deletion.pre -outbed Causal_Pindel_Deletion.pre
+python "$SV_folder"/Tailored_SV_thala/Screening_stage/Pindel/matching_breakpoint.py -knownbed $KNOWN_SV_FILE -bed Pindel_Deletion.pre -outbed Causal_Pindel_Deletion.pre

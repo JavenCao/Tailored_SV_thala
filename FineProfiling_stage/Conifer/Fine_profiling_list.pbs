@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -N FP_MainRun_Conifer
+#PBS -l mem=40g,nodes=1:ppn=5,walltime=18:00:00
+#PBS -q queue_name_here
+#PBS -m abe -M youremail_address_here
+#PBS -o FP_MainRun_Conifer.out
+#PBS -e FP_MainRun_Conifer.err
+#PBS -V
+
+SV_folder=/home/data/thala_project/SV
+Raw_Bam_file_folder=/home/data/thala_project/Bam_file
+cnvf="$SV_folder"/FineProfiling_stage/Conifer
+PROBE_FILE="$SV_folder"/Tailored_SV_thala/FineProfiling_stage/Conifer/hg19_probe_coverage.bed
+SAMTOOLS=/home/yjcao/software/samtools-1.4/samtools
+CONIFER=/home/software/Conifer/conifer.py
+KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/FineProfiling_stage/Conifer/sorted.known_SV_Deletion_100bp.bed

@@ -126,17 +126,21 @@ Here, we give an example showing the general process, users please take 5 minite
 
     Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre
 
-Let's say, if you find 20(>8 is OK) --SEA carriers, then you can continue.
+Let's say, if you find 20(sample size >8 is OK) --SEA carriers, then you can continue.
 
     mkdir RPKM(/home/data/Thala/SV/FineProfiling_Stage/Conifer/RPKM)
 
 Then,
 
-**(iii) Copy the 20 --SEA carriers' RPKM files from the Screening_stage/Conifer/RPKM folder to the RPKM folder you just created**
+**(iii) Copy these 20 --SEA carriers' RPKM files from the Screening_stage/Conifer/RPKM folder to the RPKM folder you just created**
 
 **(iv) Run the Conifer scripts and check the resutls**
 
+    cd /home/data/Thala/SV/FileProfiling_stage/Conifer
     qsub FP_step1_main_run_Conifer.pbs
+
+**The results file are in /home/data/Thala/SV/FileProfiling_stage/Conifer/QCed_Report/Conifer_Deletion_Causal.pre
+                                                                                     /Alpha_region_Conifer_Duplication.pre**
 
 ## License
 

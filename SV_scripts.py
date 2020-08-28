@@ -56,6 +56,10 @@ if __name__ == "__main__":
     ModifyAndCreate_v2(Conifer_Run_Modelfile, Path_dict,
                        FineProfiling_stage_F, SampleList, "Conifer_Run")
 
+    Fine_profiling_list_modelfile = FP_Conider_scripts_folder + "/Fine_profiling_list.pbs"
+    ModifyAndCreate_v2(Fine_profiling_list_modelfile, Path_dict,
+                       FineProfiling_stage_F, SampleList, "Fine_profiling_list")
+
 else:
     pass
 

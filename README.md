@@ -120,6 +120,9 @@ Here, we give an example showing the process, users please take 5 minites to lea
 **(i) merge BreakDancer and Pindel callings**
 **(ii) Define sample list with deletions covering both the HBA2 and HBA1 regions**
 **(iii) Manually check the carrier counts for each deletions**
+
+Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre
+
 **(iv) Copy their RPKM files from the Screening_stage/Conifer/RPKM folders**
 **(v) Run the Conifer scripts and check the resutls**
 

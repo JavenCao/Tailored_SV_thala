@@ -26,7 +26,7 @@ BD_PRE=SV_folder + "/Screening_stage/BreakDancer/BD_pre/QCed_Report/BD_Causal.pr
 cat $P_PRE $BD_PRE > Raw_P_BD_merge.pre
 awk '{if(/Deletion_with_support_Reads/){}else{print}}' Raw_P_BD_merge.pre | sort -k6 > sorted_Raw_P_BD_merge.pre
 
-python Remove_duplicated_causal.py -bed sorted_Raw_P_BD_merge.pre -uniqbed uniq_Raw_P_BD_merge.pre
+python "$SV_folder"/Tailored_SV_thala/FineProfiling_stage/Conifer/Remove_duplicated_causal.py -bed sorted_Raw_P_BD_merge.pre -uniqbed uniq_Raw_P_BD_merge.pre
 
 # fine profiling list
 sort -k5 uniq_Raw_P_BD_merge.pre | awk '{if($3 < 222500 && $4 > 228000){print}}'> Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre

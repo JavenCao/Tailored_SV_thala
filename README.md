@@ -105,7 +105,7 @@ Results are stored in the following folders for the Pindel, BreakDancer and Coni
     |   |   |    |   | - chr16/QCed_Report/Causal_Pindel_Deletion.pre
     |   |   |    |   | - chr11/QCed_Report/Causal_Pindel_Deletion.pre
     |   |   | -- Conifer
-    |   |   |    | -- QCed_Report
+    |   |   |    | -- QCed_Report/Conifer_Deletion_Causal.pre
 
 
 ## License

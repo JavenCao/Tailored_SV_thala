@@ -15,6 +15,7 @@ if __name__ == "__main__":
     Create_Folders(Screening_stage_F, each_software_F)
 
     Conider_scripts_folder = os.getcwd() + '/Screening_stage/Conifer'
+    FP_Conider_scripts_folder = os.getcwd() + '/FineProfiling_stage/Conifer'
     Pindel_scripts_folder = os.getcwd() + '/Screening_stage/Pindel'
     BreakDancer_scripts_folder = os.getcwd() + '/Screening_stage/BreakDancer'
 
@@ -46,9 +47,14 @@ if __name__ == "__main__":
 # 2020new - fine profiling stage
     FineProfiling_stage_F = SV_folder.rstrip('/') + '/' + "FineProfiling_stage"
     each_software_F = ['Conifer']
-
     Create_Folders(FineProfiling_stage_F, each_software_F)
-
+#   FP_Conider_scripts_folder = os.getcwd() + '/FineProfiling_stage/Conifer'
+    Conifer_Run_Modelfile = FP_Conider_scripts_folder + \
+        '/FP_step1_main_run_Conifer.pbs'
+    SV_folder = Path_dict.get("SV_folder")
+    FineProfiling_stage_F = SV_folder.rstrip('/') + '/' + "FineProfiling_stage"
+    ModifyAndCreate_v2(Conifer_Run_Modelfile, Path_dict,
+                       FineProfiling_stage_F, SampleList, "Conifer_Run")
 
 else:
     pass

@@ -16,6 +16,7 @@ CONIFER=/home/software/Conifer/conifer.py
 KNOWN_SV_FILE="$SV_folder"/Tailored_SV_thala/FineProfiling_stage/Conifer/sorted.known_SV_Deletion_100bp.bed
 
 source activate conifer
+
 python $CONIFER analyze \
     --probes $PROBE_FILE \
     --rpkm_dir $cnvf/RPKM/ \
@@ -44,14 +45,15 @@ sort -k1,1 -k2,2n Conifer_Deletion.pre > mid_sorted_Conifer_Deletion.pre
 
 bedtools closest -a mid_sorted_Conifer_Deletion.pre -b $KNOWN_SV_FILE -d > Conifer_Deletion_Causal.mid.bed
 
-python "$SV_folder"/Tailored_SV_thala/Screening_stage/Conifer/Find_minimum_range_Conifer.py --bed Conifer_Deletion_Causal.mid.bed -minbed Conifer_Deletion_Causal.pre.mid
+python "$SV_folder"/Tailored_SV_thala/FineProfiling_stage/Conifer/Find_minimum_range_Conifer.py --bed Conifer_Deletion_Causal.mid.bed -minbed Conifer_Deletion_Causal.pre.mid
 
 sort -k6 Conifer_Deletion_Causal.pre.mid > Conifer_Deletion_Causal.pre
 
 rm -rf Conifer_Deletion_Causal.pre.mid Conifer_Deletion_Causal.mid.bed mid_sorted_Conifer_Deletion.pre
 
-# duplication
 
+
+# duplication
 awk 'BEGIN{print "chr\tpos1\tpos2\tsize\tDeletion_with_support_Reads\tsample_name"}'  > Conifer_Duplication.pre
 awk '{if($4-$3>2500  && $5=="dup"){print $2"\t"$3"\t"$4"\t"$4-$3"\tNA\t"$1}}' fine_profiling_CNVcalls.txt >> Conifer_Duplication.pre
 awk '{if($2>219000 && $3<228000){print}}' Conifer_Duplication.pre  | sort -k6 > Alpha_region_Conifer_Duplication.pre

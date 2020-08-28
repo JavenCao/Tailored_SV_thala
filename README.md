@@ -118,15 +118,27 @@ For example, when you detected 20 --SEA deletion carriers, then you can let thes
 Here, we give an example showing the process, users please take 5 minites to learn and then deside whether applies to your situations.
 
 **(i) merge BreakDancer and Pindel callings**
+
 **(ii) Define sample list with deletions covering both the HBA2 and HBA1 regions**
-**(iii) Manually check the carrier counts for each deletions**
+
+
+  cd /home/data/Thala/SV/FileProfiling_stage/Conifer
+  qsub Fine_profiling_list.pbs
+
+**(iii) Manually check the carrier counts for each deletions in the following files**
 
 Fine_Profiling_list.sorted_uniq_Raw_P_BD_merge.pre
 
+Let's say, if you find 20 --SEA carriers, then you can contine.
+
 **(iv) Copy their RPKM files from the Screening_stage/Conifer/RPKM folders**
+
+  mkdir RPKM
+
+Then **(iv) Copy the 20 --SEA carriers' from the Screening_stage/Conifer/RPKM folders**
+
 **(v) Run the Conifer scripts and check the resutls**
-
-
+  qsub FP_step1_main_run_Conifer.pbs
 
 ## License
 

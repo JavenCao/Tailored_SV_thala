@@ -141,7 +141,7 @@ Then,
 
 **The results file are in:**
 
-    /home/data/Thala/SV/FileProfiling_stage/Conifer/QCed_Report/Conifer_Deletion_Causal.pre
+    /home/data/Thala/SV/FineProfiling_stage/Conifer/QCed_Report/Conifer_Deletion_Causal.pre
                                                                 /Alpha_region_Conifer_Duplication.pre
 
 ## License

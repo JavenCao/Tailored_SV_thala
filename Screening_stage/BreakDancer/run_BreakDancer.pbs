@@ -40,17 +40,15 @@ do
         then
             python $BD_CHECK_CON_PY $BDwkd/config/"$i".bam.SeqCap.insertsize_histogram $BDwkd/config/BD_"$i".cfg $BDwkd/config/modified_BD_"$i".cfg
             #run BreakDancer with the new config
-            # -q 0: we skip the MAQ=0 reads only, not -q 35, to increase sensitivity
             $BREAKDANCER -q 0 $BDwkd/config/modified_BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
     else
         #run BreakDancer with the original configure file
-        # -q 0: we skip the MAQ=0 reads only, not -q 35, to increase sensitivity
         $BREAKDANCER -q 0 $BDwkd/config/BD_"$i".cfg > $BDwkd/BD_pre/BD_"$i".pre
     fi
 done
 
 
-# filtering steps 8th March, 2020
+# filtering steps
 cd $BDwkd/BD_pre
 mkdir Raw_file
 mv ./* ./Raw_file
@@ -73,8 +71,3 @@ python "$SV_folder"/Tailored_SV_thala/Screening_stage/BreakDancer/Find_minimum_r
 sort -k6 BD_Causal_mid.pre > BD_Causal.pre
 
 rm -rf BD_Causal.mid.bed mid_sorted_BreakDancer_Deletion.pre BD_Causal_mid.pre
-
-# groupping
-#awk '{if($3-$2 > 10000) {print $6}}' Causal_Pindel_Deletion.pre > Pindel.GroupI.10K.del.ind.list
-#awk '{if($3-$2 <= 10000) {print $6}}' Causal_Pindel_Deletion.pre > Pindel.GroupII.10K.del.ind.list
-

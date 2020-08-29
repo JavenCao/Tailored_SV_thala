@@ -123,6 +123,18 @@ Here, for the screening purpose, we only focus on known causal SVs. Users could 
     |   |   |    | -- QCed_Report/Conifer_Deletion_Causal.pre
                                  /Alpha_region_Conifer_Duplication.pre
 
+Plotting of the Conifer restus can be done by the following commands:
+
+    cd /home/data/Thala/SV/Screening_stage/Conifer
+    mkdir plots
+    sample_id=sample1.rpkm
+    python  conifer.py plot \
+        --input analysis.hdf5 \
+        --region chr16:219000-230000 \
+        --output ./plots/"$i".png \
+        --sample "$sample_id".rpkm
+
+
 * Step6: Fine-profiling stage(if necessary)
 
 Since read-depth method is a comparative method, it is sensitive to sample size. In practise, at least 8 samples from the same batch and carrying the same large deletions are exptected in fine-profiling stage.

@@ -123,7 +123,7 @@ Here, for the screening purpose, we only focus on known causal SVs. Users could 
     |   |   |    | -- QCed_Report/Conifer_Deletion_Causal.pre
                                  /Alpha_region_Conifer_Duplication.pre
 
-Plotting of the Conifer restus can be done by the following commands:
+Visualization of the Conifer restus can be done by the following commands:
 
     cd /home/data/Thala/SV/Screening_stage/Conifer
     mkdir plots

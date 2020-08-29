@@ -97,7 +97,7 @@ Traceback (most recent call last):
     if not f._hasIndex():
 AttributeError: 'pysam.libcsamfile.Samfile' object has no attribute '_hasIndex'
 
-Please vi /home/software/Conifer/conifer_v0.2.2/conifer.py, and change f._hasIndex() to f.has_index()
+**Please vi /home/software/Conifer/conifer_v0.2.2/conifer.py, and change f._hasIndex() to f.has_index()**
 
 
 

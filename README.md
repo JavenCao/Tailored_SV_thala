@@ -87,6 +87,20 @@ After BreakDancer and Pindel, we run Conifer: first calculate RPKM, then run the
       qsub RPKM_cal.pbs
       qsub Conifer_Run.pbs
 
+**Notes**
+
+When coming the following issues like:
+Traceback (most recent call last):
+  File "/home/software/Conifer/conifer_v0.2.2/conifer.py", line 684, in <module>
+    args.func(args)
+  File "/home/software/Conifer/conifer_v0.2.2/conifer.py", line 566, in CF_bam2RPKM
+    if not f._hasIndex():
+AttributeError: 'pysam.libcsamfile.Samfile' object has no attribute '_hasIndex'
+
+Please vi /home/software/Conifer/conifer_v0.2.2/conifer.py, and change f._hasIndex() to f.has_index()
+
+
+
 Here, for the screening purpose, we only focus on known causal SVs. Users could writing their own scripts to filter the resutls.
 
 **Results for screening_stage** are stored in the following files:

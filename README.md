@@ -131,7 +131,7 @@ Visualization of the Conifer restus can be done by the following commands:
     python  conifer.py plot \
         --input analysis.hdf5 \
         --region chr16:219000-230000 \
-        --output ./plots/"$i".png \
+        --output ./plots/"$sample_id".png \
         --sample "$sample_id".rpkm
 
 

@@ -55,5 +55,5 @@ rm -rf Conifer_Deletion_Causal.pre.mid Conifer_Deletion_Causal.mid.bed mid_sorte
 
 # duplication
 awk 'BEGIN{print "chr\tpos1\tpos2\tsize\tDeletion_with_support_Reads\tsample_name"}'  > Conifer_Duplication.pre
-awk '{if($4-$3>2500  && $5=="dup"){print $2"\t"$3"\t"$4"\t"$4-$3"\tNA\t"$1}}' fine_profiling_CNVcalls.txt >> Conifer_Duplication.pre
+awk '{if($4-$3>2500  && $5=="dup"){print $2"\t"$3"\t"$4"\t"$4-$3"\tNA\t"$1}}' $cnvf/fine_profiling_CNVcalls.txt >> Conifer_Duplication.pre
 awk '{if($2>219000 && $3<228000){print}}' Conifer_Duplication.pre  | sort -k6 > Alpha_region_Conifer_Duplication.pre
